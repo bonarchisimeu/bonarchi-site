@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const updated = 'Juin 2026';
+---
+
+<Base title="En ce moment" description="Ce sur quoi Yann Bonarchi Simeu se concentre en ce moment.">
+  <article class="wrap prose">
+    <span class="ledger-no">00</span>
+    <h1>En ce moment</h1>
+    <p class="meta">Mis à jour — {updated}</p>
+
+    <p class="lede">Un instantané de ce qui m'occupe en ce moment.</p>
+
+    <ul>
+      <li>Je livre du logiciel bancaire pour la zone CEMAC, mon vrai terrain d'apprentissage.</li>
+      <li>Je termine le Term 4 (AY 2026) de ma licence BBA à la University of the People.</li>
+      <li>J'écris ce que j'ai appris sur le mobile money et le core banking en Afrique centrale.</li>
+      <li>Je construis ce site, en public.</li>
+    </ul>
+
+    <p class="footnote">
+      Ceci est une <a href="https://nownownow.com/about">page /now</a> : une liste
+      de ce qui me concentre à ce moment de ma vie.
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose { padding-top: 2.5rem; max-width: 44rem; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); }
+  .footnote { font-size: 0.9rem; color: var(--ink-faint); margin-top: var(--space); }
+</style>

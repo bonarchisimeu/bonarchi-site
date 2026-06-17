@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const origin = Astro.site?.origin ?? 'https://bonarchisimeu.me';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Yann Bonarchi Simeu',
+  url: origin,
+  jobTitle: 'Ingénieur logiciel',
+  description:
+    "Ingénieur logiciel au Cameroun, qui construit des systèmes bancaires et fintech pour la zone CEMAC.",
+  address: { '@type': 'PostalAddress', addressLocality: 'Yaoundé', addressCountry: 'CM' },
+  alumniOf: 'University of the People',
+  sameAs: ['https://github.com/bonarchisimeu'],
+};
+---
+
+<Base
+  title="À propos"
+  description="Yann Bonarchi Simeu — ingénieur logiciel au Cameroun, qui construit des systèmes bancaires et fintech pour la zone CEMAC, en route de l'ingénierie vers le leadership."
+  jsonLd={jsonLd}
+>
+  <article class="wrap prose">
+    <span class="ledger-no">00</span>
+    <h1>À propos</h1>
+
+    <p class="lede">
+      Je suis ingénieur logiciel, basé au Cameroun. J'écris le logiciel qui
+      déplace l'argent dans la zone CEMAC. Celui qui doit être juste du premier
+      coup, parce que c'est l'argent des gens, pas une démo.
+    </p>
+
+    <p>
+      Mon parcours a commencé dans le code : livrer des fonctionnalités de core
+      banking, intégrer des rails de mobile money, et apprendre, parfois à la
+      dure, ce qu'il faut pour faire tourner un logiciel sur lequel les gens
+      comptent sans y penser. Travailler depuis l'Afrique centrale façonne ma
+      manière de penser. Les contraintes ici sont réelles. La connectivité, la
+      réglementation sous la BEAC, la dynamique de saut technologique du mobile
+      money. Elles imposent une discipline que j'ai appris à apprécier, et
+      c'est pour ça que ce travail m'intéresse vraiment.
+    </p>
+
+    <p>
+      Je prépare aujourd'hui une licence en administration des affaires (BBA) à
+      la University of the People, volontairement. Je veux que le langage et les
+      modèles du business rejoignent les systèmes que je sais déjà construire.
+      La trajectoire que je suis : l'ingénierie, puis le leadership, puis
+      construire quelque chose qui soit à moi.
+    </p>
+
+    <p>
+      Ce site est le point de rencontre des deux moitiés : le travail que j'ai
+      livré et la réflexion derrière. Si quoi que ce soit vous est utile, c'est
+      bien le but.
+    </p>
+
+    <hr />
+
+    <h2>Ailleurs</h2>
+    <ul class="links">
+      <li><a href="https://www.linkedin.com/in/">LinkedIn</a>, où je publie régulièrement</li>
+      <li><a href="https://github.com/bonarchisimeu">GitHub</a>, code public</li>
+      <li><a href="mailto:skybdev@gmail.com">Courriel</a>, pour me joindre directement</li>
+    </ul>
+  </article>
+</Base>
+
+<style>
+  .prose { padding-top: 2.5rem; max-width: 44rem; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); }
+  .links { font-family: var(--body); }
+  .links li { margin-bottom: 0.5rem; }
+</style>

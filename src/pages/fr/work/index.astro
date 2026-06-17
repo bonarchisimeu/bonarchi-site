@@ -1,0 +1,59 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const work = (await getCollection('work', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<Base title="Réalisations" description="Études de cas — infrastructure bancaire, mobile money, et systèmes fintech construits pour l'Afrique centrale.">
+  <section class="wrap">
+    <span class="ledger-no">01</span>
+    <h1>Réalisations</h1>
+    <p class="lede">
+      Études de cas choisies. Les détails sont anonymisés là où ils touchent des
+      systèmes confidentiels. La forme du problème et les décisions d'ingénierie
+      comptent plus que les noms.
+    </p>
+    <p class="note">Les études de cas sont pour l'instant rédigées en anglais.</p>
+
+    {work.length === 0 ? (
+      <p class="empty">Études de cas en cours de rédaction. Revenez bientôt.</p>
+    ) : (
+      <ol class="cases">
+        {work.map((w, i) => (
+          <li>
+            <a href={`/work/${w.id}`} class="case">
+              <span class="meta case-no">{String(i + 1).padStart(2, '0')}</span>
+              <div class="case-body">
+                <h2>{w.data.title}</h2>
+                <p>{w.data.summary}</p>
+                <div class="case-meta">
+                  {w.data.role && <span class="meta">{w.data.role}</span>}
+                  {w.data.year && <span class="meta">{w.data.year}</span>}
+                  {w.data.stack.length > 0 && <span class="meta">{w.data.stack.join(' · ')}</span>}
+                </div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ol>
+    )}
+  </section>
+</Base>
+
+<style>
+  .wrap { padding-top: 2.5rem; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); max-width: 52ch; }
+  .note { font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-faint); }
+  .empty { color: var(--ink-faint); font-style: italic; }
+  .cases { list-style: none; padding: 0; margin-top: var(--space); max-width: none; }
+  .case { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; padding: 1.75rem 0; border-top: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
+  .case:hover { color: var(--ink); }
+  .case:hover h2 { color: var(--accent); }
+  .case-no { padding-top: 0.4rem; }
+  .case h2 { margin: 0 0 0.5rem; }
+  .case p { color: var(--ink-soft); margin: 0 0 0.75rem; }
+  .case-meta { display: flex; flex-wrap: wrap; gap: 1rem; }
+</style>

@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getLangFromUrl, altPaths } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -30,17 +31,52 @@ const ogImage = new URL(image, Astro.site);
 const siteName = 'Yann Bonarchi Simeu';
 const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
 const ldBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+
+const lang = getLangFromUrl(Astro.url);
+const { en: enPath, fr: frPath } = altPaths(Astro.url.pathname);
+const enHref = new URL(enPath, Astro.site).href;
+const frHref = new URL(frPath, Astro.site).href;
+const ogLocale = lang === 'fr' ? 'fr_FR' : 'en';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Language detection: from the bare EN root only, redirect French-preferring
+         visitors to /fr. An explicit switch (data-set-lang) is remembered and wins. -->
+    <script is:inline>
+      (function () {
+        try {
+          if (location.pathname === '/') {
+            var pref = localStorage.getItem('lang');
+            var lang =
+              pref ||
+              ((navigator.language || '').toLowerCase().slice(0, 2) === 'fr'
+                ? 'fr'
+                : 'en');
+            if (lang === 'fr') location.replace('/fr/');
+          }
+        } catch (e) {}
+      })();
+      addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('[data-set-lang]');
+        if (a) {
+          try {
+            localStorage.setItem('lang', a.getAttribute('data-set-lang'));
+          } catch (_) {}
+        }
+      });
+    </script>
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content={siteName} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="fr" href={frHref} />
+    <link rel="alternate" hreflang="x-default" href={enHref} />
 
     <!-- Open Graph / social -->
     <meta property="og:type" content={type} />
@@ -49,7 +85,7 @@ const ldBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="en" />
+    <meta property="og:locale" content={ogLocale} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />

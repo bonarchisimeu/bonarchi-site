@@ -1,21 +1,32 @@
 ---
+import { getLangFromUrl, useTranslations, altPaths } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const path = Astro.url.pathname;
+const base = lang === 'fr' ? '/fr' : '';
+const home = base || '/';
+
 const nav = [
-  { href: '/work', label: 'Work' },
-  { href: '/writing', label: 'Writing' },
-  { href: '/about', label: 'About' },
-  { href: '/now', label: 'Now' },
-  { href: '/contact', label: 'Contact' },
+  { href: `${base}/work`, label: t('nav.work') },
+  { href: `${base}/writing`, label: t('nav.writing') },
+  { href: `${base}/about`, label: t('nav.about') },
+  { href: `${base}/now`, label: t('nav.now') },
+  { href: `${base}/contact`, label: t('nav.contact') },
 ];
-const isActive = (href: string) =>
-  href === '/' ? path === '/' : path.startsWith(href);
+const isActive = (href: string) => path === href || path.startsWith(href + '/');
+
+// Language toggle points to the current page's counterpart in the other locale.
+const { en, fr } = altPaths(path);
+const switchHref = lang === 'fr' ? en : fr;
+const switchLang = lang === 'fr' ? 'en' : 'fr';
 ---
 
 <header class="masthead">
   <div class="wrap masthead-inner">
-    <a href="/" class="brand" aria-label="Home">
+    <a href={home} class="brand" aria-label="Home">
       <span class="brand-name">Yann Bonarchi Simeu</span>
-      <span class="brand-sub">Banking infrastructure · Central Africa</span>
+      <span class="brand-sub">{t('brand.sub')}</span>
     </a>
     <nav aria-label="Primary">
       <ul>
@@ -26,6 +37,9 @@ const isActive = (href: string) =>
             </a>
           </li>
         ))}
+        <li class="lang">
+          <a href={switchHref} data-set-lang={switchLang} aria-label={t('lang.switch.label')}>{t('lang.switch')}</a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -69,6 +83,7 @@ const isActive = (href: string) =>
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    align-items: baseline;
     gap: 1.25rem;
     margin: 0;
     padding: 0;
@@ -86,4 +101,9 @@ const isActive = (href: string) =>
     color: var(--accent);
     border-bottom: 1px solid var(--accent);
   }
+  .lang {
+    padding-left: 1.25rem;
+    border-left: 1px solid var(--rule);
+  }
+  .lang a { color: var(--ink); font-weight: 600; }
 </style>
