@@ -1,0 +1,43 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  source?: string;
+}
+const { quote, author, source } = Astro.props;
+---
+
+<figure class="epigraph">
+  <blockquote>{quote}</blockquote>
+  <figcaption>
+    — {author}{source && <span class="src">, {source}</span>}
+  </figcaption>
+</figure>
+
+<style>
+  .epigraph {
+    margin: 0 0 2.5rem;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--rule-strong);
+    max-width: 42rem;
+  }
+  .epigraph blockquote {
+    margin: 0 0 0.6rem;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: none;
+  }
+  .epigraph figcaption {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .epigraph .src {
+    font-style: italic;
+    text-transform: none;
+  }
+</style>

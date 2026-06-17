@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Epigraph from '../../components/Epigraph.astro';
 
 const origin = Astro.site?.origin ?? 'https://bonarchisimeu.me';
 const jsonLd = {
@@ -31,6 +32,11 @@ const jsonLd = {
   <article class="wrap prose">
     <span class="ledger-no">00</span>
     <h1>À propos</h1>
+
+    <Epigraph
+      quote="La capacité d'apprendre est un don ; l'aptitude à apprendre est une compétence ; la volonté d'apprendre est un choix."
+      author="Brian Herbert"
+    />
 
     <p class="lede">
       Je suis ingénieur logiciel, basé au Cameroun. Mon métier : plonger dans un

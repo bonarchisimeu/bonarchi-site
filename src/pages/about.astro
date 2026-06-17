@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Epigraph from '../components/Epigraph.astro';
 
 const origin = Astro.site?.origin ?? 'https://bonarchisimeu.me';
 const jsonLd = {
@@ -35,6 +36,12 @@ const jsonLd = {
   <article class="wrap prose">
     <span class="ledger-no">00</span>
     <h1>About</h1>
+
+    <Epigraph
+      quote="The capacity to learn is a gift; the ability to learn is a skill; the willingness to learn is a choice."
+      author="Brian Herbert"
+      source="Dune: House Harkonnen"
+    />
 
     <p class="lede">
       I'm a software engineer based in Cameroon. My work is to go deep into a
