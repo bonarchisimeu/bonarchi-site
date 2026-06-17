@@ -7,7 +7,8 @@ export type Lang = (typeof locales)[number];
 
 export const ui = {
   en: {
-    'brand.sub': 'Banking infrastructure · Central Africa',
+    'brand.ledger': 'The Logbook',
+    'brand.sub': 'Software engineer · Central Africa',
     'nav.work': 'Work',
     'nav.writing': 'Writing',
     'nav.about': 'About',
@@ -19,7 +20,8 @@ export const ui = {
     'footer.email': 'Email',
   },
   fr: {
-    'brand.sub': 'Infrastructure bancaire · Afrique centrale',
+    'brand.ledger': 'Le Carnet',
+    'brand.sub': 'Ingénieur logiciel · Afrique centrale',
     'nav.work': 'Réalisations',
     'nav.writing': 'Écrits',
     'nav.about': 'À propos',

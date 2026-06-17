@@ -15,17 +15,17 @@ const posts = (
 const fmt = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
 
-// Focus areas — substance that stands even before case studies are published.
+// Focus areas — the transferable craft, not a single industry.
 const focus = [
   {
     no: '01',
-    title: 'Core banking systems',
-    body: 'Ledgers, accounts, and the transaction engines a bank runs on. Software that has to be correct, not just fast — because the numbers are real money.',
+    title: 'Going deep into a domain',
+    body: "I don't ship generic software. I learn a field until I can build what it actually needs. Banking today; the method travels to whatever comes next.",
   },
   {
     no: '02',
-    title: 'Mobile money & payments',
-    body: 'The rails that actually reach people in Central Africa. Integration, reconciliation, and failure handling under real network conditions — not the lab.',
+    title: 'Systems that must be correct',
+    body: 'When the output is real money, a diagnosis, or a harvest, correct beats clever. I build for the parts that cannot fail quietly.',
   },
   {
     no: '03',
@@ -53,18 +53,18 @@ const jsonLd = [
     url: origin,
     jobTitle: 'Software Engineer',
     description:
-      'Software engineer building banking and fintech systems in Central Africa.',
+      'Software engineer who builds the systems a domain needs. Currently working in banking and fintech in Central Africa.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Yaoundé',
       addressCountry: 'CM',
     },
     knowsAbout: [
+      'Software engineering',
+      'Systems design',
       'Banking software',
       'Mobile money',
-      'Core banking systems',
       'Fintech',
-      'CEMAC',
     ],
     sameAs: [
       'https://github.com/bonarchisimeu',
@@ -87,11 +87,10 @@ const jsonLd = [
       <p class="eyebrow">Software engineer · Yaoundé, Cameroon</p>
       <h1>I turn institutional problems into software people actually use.</h1>
       <p class="lede">
-        Starting with the hardest one: banking. For years I've built the
-        software behind it in the CEMAC region: core banking, mobile money
-        rails, the systems that move money for people a branch never reached.
-        Now I'm widening the lens to how institutions across the region serve
-        people, and turning that engineering into something larger.
+        I go deep into a domain and build the software it runs on. Right now
+        that domain is banking, in the CEMAC region: core systems, mobile money
+        rails, the plumbing that moves real money. The domain will change. The
+        craft travels.
       </p>
       <p class="hero-cta">
         <a href="/work">See the work</a>
@@ -103,12 +102,12 @@ const jsonLd = [
     <!-- ledger identity card -->
     <aside class="card" aria-label="At a glance">
       <div class="card-head">
-        <span class="meta">Le Grand Livre</span>
+        <span class="meta">The Logbook</span>
         <span class="meta">No. 001</span>
       </div>
       <div class="double-rule"></div>
       <p class="card-name">Yann Bonarchi Simeu</p>
-      <p class="card-role">Software engineer · banking &amp; fintech</p>
+      <p class="card-role">Software engineer · systems builder</p>
       <dl class="card-rows">
         <div><dt class="meta">Based</dt><dd>Yaoundé, Cameroon</dd></div>
         <div><dt class="meta">Region</dt><dd>CEMAC · Central Africa</dd></div>
