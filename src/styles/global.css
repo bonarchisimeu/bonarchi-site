@@ -1,0 +1,204 @@
+/* ============================================================
+   "Le Grand Livre" — design system
+   A banking ledger transposed into an editorial object.
+   Paper & ink · terracotta accent · ruled lines · tabular figures.
+   ============================================================ */
+
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/inter';
+
+:root {
+  /* --- palette --------------------------------------------------- */
+  --paper: #f6f1e7;        /* warm ivory ledger page */
+  --paper-2: #efe8da;      /* slightly deeper for cards / wells */
+  --ink: #1c1813;          /* near-black writing ink */
+  --ink-soft: #574f43;     /* secondary text */
+  --ink-faint: #8c8270;    /* metadata, captions */
+  --rule: #d8cdb8;         /* ruled ledger lines */
+  --rule-strong: #b8ab8f;  /* double-rule under masthead */
+  --accent: #b6492c;       /* terracotta — Central African earth */
+  --accent-deep: #8f3620;
+  --accent-wash: #efd9cf;  /* faint accent tint */
+
+  /* --- type ------------------------------------------------------ */
+  --display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --body: 'Inter Variable', system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace;
+
+  /* --- scale ----------------------------------------------------- */
+  --measure: 68ch;         /* readable line length */
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --space: clamp(3rem, 8vw, 6rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16130f;
+    --paper-2: #1f1b15;
+    --ink: #ece4d4;
+    --ink-soft: #b7ac98;
+    --ink-faint: #877d6a;
+    --rule: #342e25;
+    --rule-strong: #4a4234;
+    --accent: #d9663f;
+    --accent-deep: #e07a55;
+    --accent-wash: #2a1d16;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  /* faint ruled-ledger lines, like an accounting book */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2.49rem,
+    var(--rule) 2.49rem,
+    var(--rule) 2.5rem
+  );
+  background-attachment: local;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 2.5rem; /* locks text to the ruled baseline grid */
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- headings -------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 540;
+  font-optical-sizing: auto;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 600; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
+h3 { font-size: 1.3rem; }
+
+p, ul, ol {
+  margin: 0 0 1.5rem;
+  max-width: var(--measure);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--accent-deep); text-decoration: underline; }
+
+strong { font-weight: 600; }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: var(--paper-2);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+pre {
+  font-family: var(--mono);
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  line-height: 1.6;
+  max-width: 100%;
+}
+pre code { background: none; padding: 0; }
+
+img { max-width: 100%; height: auto; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule-strong);
+  margin: var(--space) 0;
+}
+
+/* --- layout primitives ----------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* ledger-style section index number (01 / 02 / 03) */
+.ledger-no {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* metadata row, tabular figures like a balance sheet */
+.meta {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+}
+
+/* the double-rule signature of a ledger page */
+.double-rule {
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 3px double var(--rule-strong);
+  height: 4px;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.75rem;
+}
+
+/* focus visibility for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

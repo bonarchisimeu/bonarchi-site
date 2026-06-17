@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Yann Bonarchi Simeu">
+  <rect width="64" height="64" rx="10" fill="#f6f1e7"/>
+  <!-- ledger ruled lines -->
+  <g stroke="#d8cdb8" stroke-width="2">
+    <line x1="12" y1="22" x2="52" y2="22"/>
+    <line x1="12" y1="42" x2="52" y2="42"/>
+  </g>
+  <!-- terracotta double-rule baseline (the masthead signature) -->
+  <g stroke="#b6492c">
+    <line x1="12" y1="50" x2="52" y2="50" stroke-width="2"/>
+    <line x1="12" y1="54" x2="52" y2="54" stroke-width="3"/>
+  </g>
+  <!-- monogram -->
+  <text x="32" y="36" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="600" fill="#1c1813">B</text>
+</svg>

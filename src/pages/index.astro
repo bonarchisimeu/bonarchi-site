@@ -1,0 +1,327 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const work = (await getCollection('work', ({ data }) => !data.draft))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+
+// Focus areas — substance that stands even before case studies are published.
+const focus = [
+  {
+    no: '01',
+    title: 'Core banking systems',
+    body: 'Ledgers, accounts, and the transaction engines a bank runs on. Software that has to be correct, not just fast — because the numbers are real money.',
+  },
+  {
+    no: '02',
+    title: 'Mobile money & payments',
+    body: 'The rails that actually reach people in Central Africa. Integration, reconciliation, and failure handling under real network conditions — not the lab.',
+  },
+  {
+    no: '03',
+    title: 'From engineering to leadership',
+    body: 'Why building systems is the best training for building teams and companies. The trajectory I am walking, written down as I go.',
+  },
+];
+
+// Topics surfaced when the writing list is still empty — beats "coming soon".
+const topics = [
+  'Mobile money',
+  'Core banking',
+  'CEMAC / BEAC regulation',
+  'AfCFTA & cross-border payments',
+  'System design',
+  'Engineering → leadership',
+];
+---
+
+<Base title="Yann Bonarchi Simeu">
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-text">
+      <p class="eyebrow">Software engineer · Yaoundé, Cameroon</p>
+      <h1>I build the banking infrastructure of Central Africa.</h1>
+      <p class="lede">
+        For years I've shipped the software that moves money across the CEMAC
+        region — core banking, mobile money rails, the systems people never see
+        but use every day. I'm now turning that engineering ground-truth into
+        something larger.
+      </p>
+      <p class="hero-cta">
+        <a href="/work">See the work</a>
+        <span class="sep">·</span>
+        <a href="/writing">Read the writing</a>
+      </p>
+    </div>
+
+    <!-- ledger identity card -->
+    <aside class="card" aria-label="At a glance">
+      <div class="card-head">
+        <span class="meta">Le Grand Livre</span>
+        <span class="meta">No. 001</span>
+      </div>
+      <div class="double-rule"></div>
+      <p class="card-name">Yann Bonarchi Simeu</p>
+      <p class="card-role">Software engineer · banking &amp; fintech</p>
+      <dl class="card-rows">
+        <div><dt class="meta">Based</dt><dd>Yaoundé, Cameroon</dd></div>
+        <div><dt class="meta">Region</dt><dd>CEMAC · Central Africa</dd></div>
+        <div><dt class="meta">Studying</dt><dd>BBA — UoPeople</dd></div>
+        <div><dt class="meta">Status</dt><dd><span class="open">Open to conversations</span></dd></div>
+      </dl>
+    </aside>
+  </section>
+
+  <!-- FOCUS -->
+  <section class="wrap block">
+    <header class="block-head">
+      <span class="ledger-no">§</span>
+      <h2>What I work on</h2>
+    </header>
+    <div class="focus-grid">
+      {focus.map((f) => (
+        <article class="focus">
+          <span class="ledger-no">{f.no}</span>
+          <h3>{f.title}</h3>
+          <p>{f.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="wrap block">
+    <header class="block-head">
+      <span class="ledger-no">01</span>
+      <h2>Selected work</h2>
+      <a class="more" href="/work">All case studies →</a>
+    </header>
+    {work.length === 0 ? (
+      <div class="placeholder">
+        <p>Case studies are being written up — anonymized where they touch
+        confidential systems. In the meantime, here's the kind of work they cover:</p>
+        <ul class="chips">
+          <li>Mobile money ↔ core banking integration</li>
+          <li>Zero-downtime ledger migration</li>
+          <li>Reconciliation &amp; idempotency at scale</li>
+        </ul>
+      </div>
+    ) : (
+      <ul class="entry-list">
+        {work.map((w) => (
+          <li>
+            <a href={`/work/${w.id}`} class="entry">
+              <span class="entry-title">{w.data.title}</span>
+              <span class="entry-summary">{w.data.summary}</span>
+              {w.data.year && <span class="meta entry-year">{w.data.year}</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <!-- WRITING -->
+  <section class="wrap block">
+    <header class="block-head">
+      <span class="ledger-no">02</span>
+      <h2>Writing</h2>
+      <a class="more" href="/writing">All notes →</a>
+    </header>
+    {posts.length === 0 ? (
+      <div class="placeholder">
+        <p>First notes are on the way. What I'm writing about:</p>
+        <ul class="chips">
+          {topics.map((t) => <li>{t}</li>)}
+        </ul>
+      </div>
+    ) : (
+      <ul class="entry-list">
+        {posts.map((p) => (
+          <li>
+            <a href={`/writing/${p.id}`} class="entry">
+              <span class="entry-title">{p.data.title}</span>
+              <span class="entry-summary">{p.data.description}</span>
+              <span class="meta entry-year">{fmt(p.data.pubDate)}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="wrap cta">
+    <div class="double-rule"></div>
+    <div class="cta-inner">
+      <h2>Building something at the intersection of banking and software in Africa?</h2>
+      <p>I'm always glad to compare notes — on systems, fintech, or the region.</p>
+      <p class="cta-links">
+        <a href="mailto:skybdev@gmail.com">Email me</a>
+        <span class="sep">·</span>
+        <a href="/about">More about me</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* HERO — two columns on wide screens, card fills the right */
+  .hero {
+    padding-top: 2.5rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .hero-text { min-width: 0; }
+  .lede {
+    font-size: 1.2rem;
+    line-height: 2.5rem;
+    color: var(--ink-soft);
+    max-width: 48ch;
+  }
+  .hero-cta {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .hero-cta .sep { color: var(--ink-faint); margin: 0 0.75rem; }
+
+  /* ledger identity card */
+  .card {
+    background: var(--paper-2);
+    border: 1px solid var(--rule-strong);
+    padding: 1.25rem 1.5rem 1.5rem;
+    align-self: start;
+  }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  .card-name {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1rem 0 0.1rem;
+  }
+  .card-role { color: var(--ink-soft); font-size: 0.9rem; margin: 0 0 1rem; }
+  .card-rows { margin: 0; }
+  .card-rows > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.4rem 0;
+    border-top: 1px dotted var(--rule);
+  }
+  .card-rows dt { margin: 0; }
+  .card-rows dd { margin: 0; font-size: 0.9rem; text-align: right; }
+  .open { color: var(--accent); }
+
+  /* generic block */
+  .block { margin-block: clamp(3rem, 7vw, 5rem); }
+  .block-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.5rem;
+  }
+  .block-head h2 { margin: 0; }
+  .block-head .more {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  /* FOCUS grid */
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+  .focus h3 { margin: 0.5rem 0 0.5rem; font-size: 1.2rem; }
+  .focus p { color: var(--ink-soft); font-size: 0.95rem; margin: 0; max-width: 38ch; }
+
+  /* entry lists (when content exists) */
+  .entry-list { list-style: none; margin: 0; padding: 0; max-width: none; }
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .entry:hover { color: var(--ink); }
+  .entry:hover .entry-title { color: var(--accent); }
+  .entry-title {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 540;
+    line-height: 1.2;
+  }
+  .entry-summary {
+    grid-column: 1;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    max-width: 60ch;
+  }
+  .entry-year { grid-column: 2; grid-row: 1; align-self: start; padding-top: 0.4rem; }
+
+  /* placeholder (empty state with substance) */
+  .placeholder p { color: var(--ink-soft); }
+  .chips {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    max-width: none;
+  }
+  .chips li {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    padding: 0.35rem 0.7rem;
+    border-radius: 3px;
+  }
+
+  /* closing CTA */
+  .cta { margin-top: clamp(3rem, 7vw, 5rem); }
+  .cta-inner { padding-top: 1.5rem; max-width: 44rem; }
+  .cta-inner h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+  .cta-inner p { color: var(--ink-soft); }
+  .cta-links {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 0.5rem;
+  }
+  .cta-links .sep { color: var(--ink-faint); margin: 0 0.75rem; }
+
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; }
+    .card { order: 2; }
+  }
+</style>

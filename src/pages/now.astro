@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+
+// TODO: keep this fresh — update the date and bullets every few weeks.
+// It's the cheapest authenticity signal on the whole site.
+const updated = 'June 2026';
+---
+
+<Base title="Now" description="What Yann Bonarchi Simeu is focused on right now.">
+  <article class="wrap prose">
+    <span class="ledger-no">00</span>
+    <h1>Now</h1>
+    <p class="meta">Last updated — {updated}</p>
+
+    <p class="lede">A snapshot of what has my attention right now.</p>
+
+    <ul>
+      <li>Shipping banking software for the CEMAC region — day job, the real classroom.</li>
+      <li>Finishing AY 2026 Term 4 of my BBA at the University of the People.</li>
+      <li>Writing up what I've learned about mobile money and core banking in Central Africa.</li>
+      <li>Building this site, in public.</li>
+    </ul>
+
+    <p class="footnote">
+      This is a <a href="https://nownownow.com/about">/now page</a> — a list of
+      what I'm focused on at this point in my life.
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose { padding-top: 2.5rem; max-width: 44rem; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); }
+  .footnote { font-size: 0.9rem; color: var(--ink-faint); margin-top: var(--space); }
+</style>

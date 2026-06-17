@@ -1,0 +1,89 @@
+---
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/work', label: 'Work' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/about', label: 'About' },
+  { href: '/now', label: 'Now' },
+  { href: '/contact', label: 'Contact' },
+];
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a href="/" class="brand" aria-label="Home">
+      <span class="brand-name">Yann Bonarchi Simeu</span>
+      <span class="brand-sub">Banking infrastructure · Central Africa</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        {nav.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap"><div class="double-rule"></div></div>
+</header>
+
+<style>
+  .masthead {
+    padding-top: 1.5rem;
+  }
+  .masthead-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .brand {
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  .brand:hover { color: var(--ink); }
+  .brand-name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+  }
+  .brand-sub {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+  }
+  nav a {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  nav a:hover { color: var(--accent); }
+  nav a[aria-current='page'] {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+  }
+</style>

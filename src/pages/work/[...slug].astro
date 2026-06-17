@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const items = await getCollection('work', ({ data }) => !data.draft);
+  return items.map((item) => ({ params: { slug: item.id }, props: { item } }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const { data } = item;
+---
+
+<Base title={data.title} description={data.summary} type="article">
+  <article class="wrap prose">
+    <a class="back" href="/work">← Work</a>
+    <span class="ledger-no">Case study</span>
+    <h1>{data.title}</h1>
+    <p class="lede">{data.summary}</p>
+
+    <dl class="factsheet">
+      {data.role && <div><dt class="meta">Role</dt><dd>{data.role}</dd></div>}
+      {data.year && <div><dt class="meta">Year</dt><dd>{data.year}</dd></div>}
+      {data.impact && <div><dt class="meta">Impact</dt><dd>{data.impact}</dd></div>}
+      {data.stack.length > 0 && (
+        <div><dt class="meta">Stack</dt><dd>{data.stack.join(' · ')}</dd></div>
+      )}
+    </dl>
+
+    <hr />
+    <Content />
+  </article>
+</Base>
+
+<style>
+  .prose { padding-top: 2rem; max-width: 44rem; }
+  .back {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); }
+  .factsheet {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin: var(--space) 0 0;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .factsheet dt { margin-bottom: 0.25rem; }
+  .factsheet dd { margin: 0; font-family: var(--display); font-size: 1.05rem; }
+</style>

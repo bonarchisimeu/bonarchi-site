@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="About" description="Yann Bonarchi Simeu — software engineer building banking infrastructure in Central Africa, on the road from engineering to leadership.">
+  <article class="wrap prose">
+    <span class="ledger-no">00</span>
+    <h1>About</h1>
+
+    <p class="lede">
+      I'm a software engineer based in Cameroon. I build banking and fintech
+      systems for the CEMAC region — the kind of infrastructure that has to be
+      right the first time, because money is on the line.
+    </p>
+
+    <!-- TODO: rewrite this in your own voice. Keep it first-person and honest.
+         Anchor to Cameroon. Do NOT name confidential employer projects. -->
+    <p>
+      My path started in code: shipping core banking features, integrating
+      mobile money rails, and learning — sometimes the hard way — what it takes
+      to run software that a whole region depends on. Working from Central
+      Africa shapes how I think. Constraints here are real: connectivity,
+      regulation under the BEAC, the leap-frog dynamics of mobile money. They
+      force a kind of engineering discipline that I've come to value.
+    </p>
+
+    <p>
+      I'm now studying for a Bachelor of Science in Business Administration at
+      the University of the People, deliberately. I want the vocabulary and the
+      models of business to match the systems I already know how to build. The
+      arc I'm walking is engineering → IT leadership → building something of my
+      own.
+    </p>
+
+    <p>
+      This site is where the two halves meet: the work I've shipped, and the
+      thinking behind it. If any of it is useful to you, that's the point.
+    </p>
+
+    <hr />
+
+    <h2>Elsewhere</h2>
+    <ul class="links">
+      <li><a href="https://www.linkedin.com/in/">LinkedIn</a> — where I post regularly</li>
+      <li><a href="https://github.com/">GitHub</a> — public code</li>
+      <li><a href="mailto:skybdev@gmail.com">Email</a> — reach me directly</li>
+    </ul>
+  </article>
+</Base>
+
+<style>
+  .prose { padding-top: 2.5rem; max-width: 44rem; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); }
+  .links { font-family: var(--body); }
+  .links li { margin-bottom: 0.5rem; }
+</style>

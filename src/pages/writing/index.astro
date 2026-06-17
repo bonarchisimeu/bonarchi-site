@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title="Writing" description="Notes on fintech, mobile money, core banking, and the road from engineering to leadership — written from Central Africa.">
+  <section class="wrap">
+    <span class="ledger-no">02</span>
+    <h1>Writing</h1>
+    <p class="lede">
+      Notes from inside Central African fintech — mobile money, core banking,
+      regulation, and what engineering teaches about leadership.
+    </p>
+
+    {posts.length === 0 ? (
+      <p class="empty">First notes coming soon.</p>
+    ) : (
+      <ul class="posts">
+        {posts.map((p) => (
+          <li>
+            <a href={`/writing/${p.id}`} class="post">
+              <time class="meta" datetime={p.data.pubDate.toISOString()}>
+                {fmt(p.data.pubDate)}
+              </time>
+              <h2>{p.data.title}</h2>
+              <p>{p.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</Base>
+
+<style>
+  .wrap { padding-top: 2.5rem; }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); max-width: 52ch; }
+  .empty { color: var(--ink-faint); font-style: italic; }
+  .posts { list-style: none; padding: 0; margin-top: var(--space); max-width: none; }
+  .post {
+    display: block;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--rule);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .post:hover { color: var(--ink); }
+  .post:hover h2 { color: var(--accent); }
+  .post h2 { margin: 0.4rem 0 0.5rem; }
+  .post p { color: var(--ink-soft); margin: 0; max-width: 60ch; }
+</style>

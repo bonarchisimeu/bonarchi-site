@@ -1,0 +1,62 @@
+---
+const year = 2026; // build-time constant; bump manually or wire to build date
+const links = [
+  { href: 'https://www.linkedin.com/in/', label: 'LinkedIn' },
+  { href: 'https://github.com/', label: 'GitHub' },
+  { href: '/rss.xml', label: 'RSS' },
+  { href: 'mailto:skybdev@gmail.com', label: 'Email' },
+];
+---
+
+<footer class="footer">
+  <div class="wrap"><div class="double-rule"></div></div>
+  <div class="wrap footer-inner">
+    <p class="colophon">
+      <span class="meta">Le Grand Livre</span><br />
+      Built with Astro. Set in Fraunces &amp; Inter. Hosted on the edge.
+    </p>
+    <ul class="footer-links">
+      {links.map((l) => (
+        <li><a href={l.href}>{l.label}</a></li>
+      ))}
+    </ul>
+    <p class="meta copyright">© {year} Yann Bonarchi Simeu</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: var(--space);
+    padding-bottom: 3rem;
+  }
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-top: 1.25rem;
+  }
+  .colophon {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    max-width: 28ch;
+  }
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-links a {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .copyright { margin: 0; }
+</style>
