@@ -1,56 +1,62 @@
 /* ============================================================
-   "Le Grand Livre" — design system
-   A banking ledger transposed into an editorial object.
-   Paper & ink · terracotta accent · ruled lines · tabular figures.
+   "The Logbook" — v2 design system
+   An engineer's spec sheet / blueprint, not a soft minimal site.
+   Drafting-paper grid · near-black ink · cobalt signal · technical type.
    ============================================================ */
 
-@import '@fontsource-variable/space-grotesk';
-@import '@fontsource-variable/inter';
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+@import '@fontsource/ibm-plex-mono/600.css';
 
 :root {
-  /* --- palette --------------------------------------------------- */
-  --paper: #f6f1e7;        /* warm ivory ledger page */
-  --paper-2: #efe8da;      /* slightly deeper for cards / wells */
-  --ink: #1c1813;          /* near-black writing ink */
-  --ink-soft: #574f43;     /* secondary text */
-  --ink-faint: #8c8270;    /* metadata, captions */
-  --rule: #d8cdb8;         /* ruled ledger lines (borders + faint page background) */
-  --rule-strong: #b8ab8f;  /* double-rule under masthead */
-  --accent: #b6492c;       /* terracotta — Central African earth */
-  --accent-deep: #8f3620;
-  --accent-wash: #efd9cf;  /* faint accent tint */
+  /* --- palette: cool drafting paper, not warm cream ------------- */
+  --paper: #e9ebe6;        /* cool blueprint paper */
+  --paper-2: #dfe2db;      /* cards / wells */
+  --ink: #14171b;          /* near-black, cool */
+  --ink-soft: #454b50;
+  --ink-faint: #767d80;
+  --rule: #c3c8bf;         /* borders */
+  --rule-strong: #9aa097;  /* heavy rules */
+  --grid: #cfd3c9;         /* graph-paper lines */
+  --accent: #1b3bd6;       /* cobalt signal */
+  --accent-deep: #142ba6;
+  --accent-wash: #d7ddf6;
 
-  /* --- type ------------------------------------------------------ */
-  --display: 'Space Grotesk Variable', system-ui, -apple-system, sans-serif;
-  --body: 'Inter Variable', system-ui, -apple-system, sans-serif;
-  --mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace;
+  /* --- type: distinctive, technical ----------------------------- */
+  --display: 'Bricolage Grotesque Variable', Georgia, serif;
+  --body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   /* --- scale ----------------------------------------------------- */
-  --measure: 68ch;         /* readable line length */
+  --measure: 66ch;
   --gutter: clamp(1.25rem, 5vw, 4rem);
-  --space: clamp(3rem, 8vw, 6rem);
+  --space: clamp(3rem, 8vw, 5.5rem);
+  --cell: 1.75rem;          /* graph-paper cell size */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #16130f;
-    --paper-2: #1f1b15;
-    --ink: #ece4d4;
-    --ink-soft: #b7ac98;
-    --ink-faint: #877d6a;
-    --rule: #342e25;
-    --rule-strong: #4a4234;
-    --accent: #d9663f;
-    --accent-deep: #e07a55;
-    --accent-wash: #2a1d16;
+    --paper: #0e1014;
+    --paper-2: #161a20;
+    --ink: #e7e9e3;
+    --ink-soft: #aab0ab;
+    --ink-faint: #7b8178;
+    --rule: #2a2f35;
+    --rule-strong: #3d444c;
+    --grid: #1b1f25;
+    --accent: #6f8bff;
+    --accent-deep: #93a8ff;
+    --accent-wash: #1a2030;
   }
 }
 
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -60,42 +66,36 @@ html {
 body {
   margin: 0;
   background-color: var(--paper);
-  /* faint ruled-ledger lines, like an accounting book */
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 2.49rem,
-    var(--rule) 2.49rem,
-    var(--rule) 2.5rem
-  );
-  background-attachment: local;
+  /* graph-paper grid — both axes, faint */
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: var(--cell) var(--cell);
   color: var(--ink);
   font-family: var(--body);
   font-size: 1.0625rem;
-  line-height: 2.5rem; /* locks text to the ruled baseline grid */
-  font-weight: 400;
+  line-height: 1.65;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- headings -------------------------------------------------- */
+/* --- headings: Bricolage, tight, confident --------------------- */
 h1, h2, h3, h4 {
   font-family: var(--display);
-  font-weight: 540;
-  font-optical-sizing: auto;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   color: var(--ink);
   margin: 0 0 1rem;
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 600; }
-h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
-h3 { font-size: 1.3rem; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.75rem); font-weight: 700; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
+h3 { font-size: 1.3rem; letter-spacing: -0.01em; }
 
 p, ul, ol {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.4rem;
   max-width: var(--measure);
 }
 
@@ -103,8 +103,8 @@ a {
   color: var(--accent);
   text-decoration: none;
   text-underline-offset: 0.18em;
-  text-decoration-thickness: 1px;
-  transition: color 0.15s ease;
+  text-decoration-thickness: 1.5px;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 a:hover { color: var(--accent-deep); text-decoration: underline; }
 
@@ -112,23 +112,22 @@ strong { font-weight: 600; }
 
 code {
   font-family: var(--mono);
-  font-size: 0.9em;
+  font-size: 0.88em;
   background: var(--paper-2);
   padding: 0.1em 0.35em;
-  border-radius: 3px;
+  border: 1px solid var(--rule);
 }
 
 pre {
   font-family: var(--mono);
   background: var(--paper-2);
   border: 1px solid var(--rule);
-  border-radius: 4px;
   padding: 1.25rem;
   overflow-x: auto;
   line-height: 1.6;
   max-width: 100%;
 }
-pre code { background: none; padding: 0; }
+pre code { background: none; padding: 0; border: 0; }
 
 img { max-width: 100%; height: auto; }
 
@@ -141,7 +140,7 @@ hr {
 /* --- layout primitives ----------------------------------------- */
 .wrap {
   width: 100%;
-  max-width: 64rem;
+  max-width: 66rem;
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
@@ -157,42 +156,43 @@ hr {
 }
 .skip-link:focus { left: 0; }
 
-/* ledger-style section index number (01 / 02 / 03) */
+/* spec-sheet section marker (§ / 01 / 02) */
 .ledger-no {
   font-family: var(--mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
 
-/* metadata row, tabular figures like a balance sheet */
+/* metadata, tabular figures */
 .meta {
   font-family: var(--mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
   color: var(--ink-faint);
   font-variant-numeric: tabular-nums;
   text-transform: uppercase;
 }
 
-/* the double-rule signature of a ledger page */
+/* the heavy double-rule signature */
 .double-rule {
-  border-top: 1px solid var(--rule-strong);
-  border-bottom: 3px double var(--rule-strong);
-  height: 4px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 5px;
 }
 
 .eyebrow {
   font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-faint);
-  margin-bottom: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 0.85rem;
 }
 
-/* focus visibility for keyboard users */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
