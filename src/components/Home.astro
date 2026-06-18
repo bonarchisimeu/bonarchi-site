@@ -1,0 +1,351 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  lang: 'en' | 'fr';
+}
+const { lang } = Astro.props;
+const base = lang === 'fr' ? '/fr' : '';
+const locale = lang === 'fr' ? 'fr-FR' : 'en-US';
+
+const work = (
+  await getCollection('work', ({ data }) => !data.draft && data.lang === lang)
+)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+
+const posts = (
+  await getCollection('writing', ({ data }) => !data.draft && data.lang === lang)
+)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString(locale, { year: 'numeric', month: 'short' });
+
+// All home copy, both languages, in one place.
+const COPY = {
+  en: {
+    eyebrow: 'Software engineer · Yaoundé, Cameroon',
+    h1: 'I learn a domain, then build the software it runs on.',
+    lede:
+      'Right now that domain is banking, in the CEMAC region: core systems, and the bridge between bank accounts and mobile money wallets, the plumbing that moves real money. Tomorrow it could be energy, health, agriculture. The domain changes. The craft travels.',
+    seeWork: 'See the work',
+    readWriting: 'Read the writing',
+    cardLedger: 'The Logbook',
+    cardRole: 'Software engineer · systems builder',
+    rows: [
+      { k: 'Based', v: 'Yaoundé, Cameroon' },
+      { k: 'Region', v: 'CEMAC · Central Africa' },
+      { k: 'Education', v: 'MSc Software Engineering' },
+      { k: 'Status', v: 'Open to conversations', open: true },
+    ],
+    focusH: 'What I work on',
+    focus: [
+      { no: '01', title: 'Going deep into a domain', body: "I don't ship generic software. I learn a field until I can build what it actually needs. Banking today; the method travels to whatever comes next." },
+      { no: '02', title: 'Systems that must be correct', body: 'When the output is real money, a diagnosis, or a harvest, correct beats clever. I build for the parts that cannot fail quietly.' },
+      { no: '03', title: 'From engineering to leadership', body: 'Why building systems is the best training for building teams and companies. The trajectory I am walking, written down as I go.' },
+    ],
+    workH: 'Selected work',
+    workMore: 'All case studies →',
+    workPlaceholder: "Case studies are being written up, anonymized where they touch confidential systems. In the meantime, here's the kind of work they cover:",
+    workChips: ['Mobile money ↔ core banking integration', 'Zero-downtime ledger migration', 'Reconciliation & idempotency at scale'],
+    writingH: 'Writing',
+    writingMore: 'All notes →',
+    writingPlaceholder: "First notes are on the way. What I'm writing about:",
+    topics: ['Mobile money', 'Core banking', 'CEMAC / BEAC regulation', 'AfCFTA & cross-border payments', 'System design', 'Engineering → leadership'],
+    ctaH: 'Building something at the intersection of banking and software in Africa?',
+    ctaP: "I'm always glad to compare notes, on systems, fintech, or the region.",
+    emailMe: 'Email me',
+    moreAbout: 'More about me',
+  },
+  fr: {
+    eyebrow: 'Ingénieur logiciel · Yaoundé, Cameroun',
+    h1: "J'apprends un domaine, puis je construis le logiciel qui le fait tourner.",
+    lede:
+      "Aujourd'hui ce domaine, c'est la banque, dans la zone CEMAC : systèmes core, et le pont entre comptes bancaires et portefeuilles mobile money, la tuyauterie qui déplace l'argent réel. Demain, ce sera peut-être l'énergie, la santé, l'agriculture. Le domaine change. Le métier voyage.",
+    seeWork: 'Voir les réalisations',
+    readWriting: 'Lire les écrits',
+    cardLedger: 'Le Carnet',
+    cardRole: 'Ingénieur logiciel · concepteur de systèmes',
+    rows: [
+      { k: 'Basé à', v: 'Yaoundé, Cameroun' },
+      { k: 'Région', v: 'CEMAC · Afrique centrale' },
+      { k: 'Formation', v: 'Master · Génie logiciel' },
+      { k: 'Statut', v: 'Ouvert aux échanges', open: true },
+    ],
+    focusH: 'Sur quoi je travaille',
+    focus: [
+      { no: '01', title: 'Plonger dans un domaine', body: "Je ne livre pas du logiciel générique. J'apprends le terrain jusqu'à savoir construire ce dont il a vraiment besoin. La banque aujourd'hui ; la méthode voyage vers la suite." },
+      { no: '02', title: 'Des systèmes qui doivent être justes', body: "Quand le résultat, c'est de l'argent réel, un diagnostic ou une récolte, juste l'emporte sur malin. Je construis pour ce qui ne peut pas échouer en silence." },
+      { no: '03', title: "De l'ingénierie au leadership", body: "Pourquoi construire des systèmes est le meilleur apprentissage pour construire des équipes et des entreprises. La trajectoire que je suis, écrite au fil de l'eau." },
+    ],
+    workH: 'Réalisations',
+    workMore: 'Toutes les études de cas →',
+    workPlaceholder: "Les études de cas sont en cours de rédaction, anonymisées là où elles touchent des systèmes confidentiels. En attendant, voici le type de travail qu'elles couvrent :",
+    workChips: ['Intégration mobile money ↔ core banking', 'Migration de grand livre sans interruption', 'Réconciliation & idempotence à l’échelle'],
+    writingH: 'Écrits',
+    writingMore: 'Toutes les notes →',
+    writingPlaceholder: "Les premières notes arrivent. Ce sur quoi j'écris :",
+    topics: ['Mobile money', 'Core banking', 'Réglementation CEMAC / BEAC', 'ZLECAf & paiements transfrontaliers', 'Architecture système', 'Ingénierie → leadership'],
+    ctaH: "Vous construisez quelque chose à l'intersection de la banque et du logiciel en Afrique ?",
+    ctaP: 'J’échange toujours volontiers, sur les systèmes, la fintech ou la région.',
+    emailMe: 'Écrivez-moi',
+    moreAbout: 'En savoir plus',
+  },
+}[lang];
+---
+
+<!-- HERO -->
+<section class="hero wrap">
+  <div class="hero-text">
+    <p class="eyebrow">{COPY.eyebrow}</p>
+    <h1>{COPY.h1}</h1>
+    <p class="lede">{COPY.lede}</p>
+    <p class="hero-cta">
+      <a href={`${base}/work`}>{COPY.seeWork}</a>
+      <span class="sep">·</span>
+      <a href={`${base}/writing`}>{COPY.readWriting}</a>
+    </p>
+  </div>
+
+  <aside class="card" aria-label="At a glance">
+    <div class="card-body">
+      <div class="card-head">
+        <span class="meta">{COPY.cardLedger}</span>
+        <span class="meta">No. 001</span>
+      </div>
+      <div class="double-rule"></div>
+      <p class="card-name">Bonarchi SIMEU</p>
+      <p class="card-role">{COPY.cardRole}</p>
+      <dl class="card-rows">
+        {COPY.rows.map((r) => (
+          <div>
+            <dt class="meta">{r.k}</dt>
+            <dd>{r.open ? <span class="open">{r.v}</span> : r.v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </aside>
+</section>
+
+<!-- FOCUS -->
+<section class="wrap block">
+  <header class="block-head">
+    <span class="ledger-no">§</span>
+    <h2>{COPY.focusH}</h2>
+  </header>
+  <div class="focus-grid">
+    {COPY.focus.map((f) => (
+      <article class="focus">
+        <span class="ledger-no">{f.no}</span>
+        <h3>{f.title}</h3>
+        <p>{f.body}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section class="wrap block">
+  <header class="block-head">
+    <span class="ledger-no">01</span>
+    <h2>{COPY.workH}</h2>
+    <a class="more" href={`${base}/work`}>{COPY.workMore}</a>
+  </header>
+  {work.length === 0 ? (
+    <div class="placeholder">
+      <p>{COPY.workPlaceholder}</p>
+      <ul class="chips">{COPY.workChips.map((c) => <li>{c}</li>)}</ul>
+    </div>
+  ) : (
+    <ul class="entry-list">
+      {work.map((w) => (
+        <li>
+          <a href={`${base}/work/${w.data.urlSlug}`} class="entry">
+            <span class="entry-title">{w.data.title}</span>
+            <span class="entry-summary">{w.data.summary}</span>
+            {w.data.year && <span class="meta entry-year">{w.data.year}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</section>
+
+<!-- WRITING -->
+<section class="wrap block">
+  <header class="block-head">
+    <span class="ledger-no">02</span>
+    <h2>{COPY.writingH}</h2>
+    <a class="more" href={`${base}/writing`}>{COPY.writingMore}</a>
+  </header>
+  {posts.length === 0 ? (
+    <div class="placeholder">
+      <p>{COPY.writingPlaceholder}</p>
+      <ul class="chips">{COPY.topics.map((t) => <li>{t}</li>)}</ul>
+    </div>
+  ) : (
+    <ul class="entry-list">
+      {posts.map((p) => (
+        <li>
+          <a href={`${base}/writing/${p.data.urlSlug}`} class="entry">
+            <span class="entry-title">{p.data.title}</span>
+            <span class="entry-summary">{p.data.description}</span>
+            <span class="meta entry-year">{fmt(p.data.pubDate)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</section>
+
+<!-- CLOSING CTA -->
+<section class="wrap cta">
+  <div class="double-rule"></div>
+  <div class="cta-inner">
+    <h2>{COPY.ctaH}</h2>
+    <p>{COPY.ctaP}</p>
+    <p class="cta-links">
+      <a href="mailto:bonarchisimeu@gmail.com">{COPY.emailMe}</a>
+      <span class="sep">·</span>
+      <a href={`${base}/about`}>{COPY.moreAbout}</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  /* HERO — two columns on wide screens, card fills the right */
+  .hero {
+    padding-top: 2.5rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .hero-text { min-width: 0; }
+  .lede {
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 48ch;
+  }
+  .hero-cta {
+    font-family: var(--label);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .hero-cta .sep { color: var(--ink-faint); margin: 0 0.75rem; }
+
+  /* identity card — pinned, tilted note with a genuinely folded corner */
+  .card {
+    position: relative;
+    align-self: start;
+    transform: rotate(-1.4deg);
+    filter: drop-shadow(0 11px 15px rgba(20, 23, 27, 0.26));
+    transition: transform 0.25s ease;
+  }
+  .card:hover { transform: rotate(0deg) translateY(-3px); }
+  .card-body {
+    position: relative;
+    background: var(--paper-2);
+    border: 1px solid var(--rule-strong);
+    padding: 1.4rem 1.5rem 1.5rem;
+  }
+  /* push-pin */
+  .card::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 30%, #fff 0 16%, var(--accent) 32%, var(--accent-deep) 100%);
+    box-shadow: 0 3px 4px -1px rgba(0, 0, 0, 0.45);
+    z-index: 2;
+  }
+  .card-head { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+  .card-name { font-family: var(--display); font-size: 1.3rem; font-weight: 600; margin: 1rem 0 0.1rem; }
+  .card-role { color: var(--ink-soft); font-size: 0.9rem; margin: 0 0 1rem; }
+  .card-rows { margin: 0; }
+  .card-rows > div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.4rem 0; border-top: 1px dotted var(--rule); }
+  .card-rows dt { margin: 0; }
+  .card-rows dd { margin: 0; font-size: 0.9rem; text-align: right; }
+  .open { color: var(--accent); }
+
+  /* generic block */
+  .block { margin-block: clamp(3rem, 7vw, 5rem); }
+  .block-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.5rem;
+  }
+  .block-head h2 { margin: 0; }
+  .block-head .more {
+    margin-left: auto;
+    font-family: var(--label);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .focus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+  .focus h3 { margin: 0.5rem 0 0.5rem; font-size: 1.2rem; }
+  .focus p { color: var(--ink-soft); font-size: 0.95rem; margin: 0; max-width: 38ch; }
+
+  .entry-list { list-style: none; margin: 0; padding: 0; max-width: none; }
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .entry:hover { color: var(--ink); }
+  .entry:hover .entry-title { color: var(--accent); }
+  .entry-title { font-family: var(--display); font-size: 1.35rem; font-weight: 540; line-height: 1.2; }
+  .entry-summary { grid-column: 1; color: var(--ink-soft); font-size: 0.95rem; max-width: 60ch; }
+  .entry-year { grid-column: 2; grid-row: 1; align-self: start; padding-top: 0.4rem; }
+
+  .placeholder p { color: var(--ink-soft); }
+  .chips { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: 0.6rem; max-width: none; }
+  .chips li {
+    font-family: var(--label);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    padding: 0.35rem 0.7rem;
+    border-radius: 3px;
+  }
+
+  .cta { margin-top: clamp(3rem, 7vw, 5rem); }
+  .cta-inner { padding-top: 1.5rem; max-width: 44rem; }
+  .cta-inner h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+  .cta-inner p { color: var(--ink-soft); }
+  .cta-links { font-family: var(--label); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.5rem; }
+  .cta-links .sep { color: var(--ink-faint); margin: 0 0.75rem; }
+
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; }
+    .card { order: 2; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card { transform: none; }
+    .card:hover { transform: translateY(-3px); }
+  }
+</style>

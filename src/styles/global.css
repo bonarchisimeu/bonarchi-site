@@ -4,32 +4,28 @@
    Drafting-paper grid · near-black ink · cobalt signal · technical type.
    ============================================================ */
 
-@import '@fontsource-variable/bricolage-grotesque';
-@import '@fontsource/ibm-plex-sans/400.css';
-@import '@fontsource/ibm-plex-sans/500.css';
-@import '@fontsource/ibm-plex-sans/600.css';
-@import '@fontsource/ibm-plex-mono/400.css';
-@import '@fontsource/ibm-plex-mono/500.css';
-@import '@fontsource/ibm-plex-mono/600.css';
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/inter';
 
 :root {
-  /* --- palette: cool drafting paper, not warm cream ------------- */
-  --paper: #e9ebe6;        /* cool blueprint paper */
-  --paper-2: #dfe2db;      /* cards / wells */
-  --ink: #14171b;          /* near-black, cool */
-  --ink-soft: #454b50;
-  --ink-faint: #767d80;
-  --rule: #c3c8bf;         /* borders */
-  --rule-strong: #9aa097;  /* heavy rules */
-  --grid: #cfd3c9;         /* graph-paper lines */
-  --accent: #1b3bd6;       /* cobalt signal */
-  --accent-deep: #142ba6;
-  --accent-wash: #d7ddf6;
+  /* --- palette: warm earth — ivory paper + terracotta ----------- */
+  --paper: #f6f1e7;        /* warm ivory */
+  --paper-2: #efe8da;      /* cards / wells */
+  --ink: #1c1813;          /* warm near-black */
+  --ink-soft: #574f43;
+  --ink-faint: #8c8270;
+  --rule: #d8cdb8;         /* borders */
+  --rule-strong: #b8ab8f;  /* heavy rules */
+  --grid: #ddd1bb;         /* faded grid lines */
+  --accent: #b6492c;       /* terracotta */
+  --accent-deep: #8f3620;
+  --accent-wash: #efd9cf;
 
-  /* --- type: distinctive, technical ----------------------------- */
-  --display: 'Bricolage Grotesque Variable', Georgia, serif;
-  --body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  /* --- type ------------------------------------------------------ */
+  --display: 'Space Grotesk Variable', system-ui, -apple-system, sans-serif;
+  --body: 'Inter Variable', system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace; /* code only */
+  --label: 'Inter Variable', system-ui, -apple-system, sans-serif;    /* labels/numbers */
 
   /* --- scale ----------------------------------------------------- */
   --measure: 66ch;
@@ -40,17 +36,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0e1014;
-    --paper-2: #161a20;
-    --ink: #e7e9e3;
-    --ink-soft: #aab0ab;
-    --ink-faint: #7b8178;
-    --rule: #2a2f35;
-    --rule-strong: #3d444c;
-    --grid: #1b1f25;
-    --accent: #6f8bff;
-    --accent-deep: #93a8ff;
-    --accent-wash: #1a2030;
+    --paper: #16130f;
+    --paper-2: #1f1b15;
+    --ink: #ece4d4;
+    --ink-soft: #b7ac98;
+    --ink-faint: #877d6a;
+    --rule: #342e25;
+    --rule-strong: #4a4234;
+    --grid: #2a2419;
+    --accent: #d9663f;
+    --accent-deep: #e07a55;
+    --accent-wash: #2a1d16;
   }
 }
 
@@ -66,17 +62,33 @@ html {
 body {
   margin: 0;
   background-color: var(--paper);
-  /* graph-paper grid — both axes, faint */
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: var(--cell) var(--cell);
   color: var(--ink);
   font-family: var(--body);
   font-size: 1.0625rem;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Graph-paper grid, concentrated in the top-right and fading out —
+   a blueprint corner, not a full tiling. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: var(--cell) var(--cell);
+  -webkit-mask-image:
+    radial-gradient(90% 60% at 100% 0%, #000 0%, transparent 58%),
+    radial-gradient(90% 60% at 0% 100%, #000 0%, transparent 58%);
+  mask-image:
+    radial-gradient(90% 60% at 100% 0%, #000 0%, transparent 58%),
+    radial-gradient(90% 60% at 0% 100%, #000 0%, transparent 58%);
+  opacity: 0.7;
 }
 
 /* --- headings: Bricolage, tight, confident --------------------- */
@@ -156,21 +168,22 @@ hr {
 }
 .skip-link:focus { left: 0; }
 
-/* spec-sheet section marker (§ / 01 / 02) */
+/* section marker (§ / 01 / 02) */
 .ledger-no {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--label);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
 }
 
 /* metadata, tabular figures */
 .meta {
-  font-family: var(--mono);
-  font-size: 0.76rem;
-  letter-spacing: 0.04em;
+  font-family: var(--label);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
   color: var(--ink-faint);
   font-variant-numeric: tabular-nums;
   text-transform: uppercase;
@@ -184,10 +197,10 @@ hr {
 }
 
 .eyebrow {
-  font-family: var(--mono);
+  font-family: var(--label);
   font-size: 0.76rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.85rem;
