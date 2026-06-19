@@ -43,7 +43,7 @@
     --ink-faint: #877d6a;
     --rule: #342e25;
     --rule-strong: #4a4234;
-    --grid: #2a2419;
+    --grid: #463d2d; /* lighter so the corner grid stays visible on dark */
     --accent: #d9663f;
     --accent-deep: #e07a55;
     --accent-wash: #2a1d16;
@@ -57,6 +57,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  overflow-x: hidden; /* guard against the tilted card nudging past the viewport */
 }
 
 body {

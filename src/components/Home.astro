@@ -30,7 +30,7 @@ const COPY = {
     accroche: 'This is where I show my work and think out loud.',
     h1: 'I learn a domain, then build the software it runs on.',
     lede:
-      'Right now that domain is banking, in the CEMAC region: core systems, and the bridge between bank accounts and mobile money wallets, the plumbing that moves real money. Tomorrow it could be energy, health, agriculture. The domain changes. The craft travels.',
+      "Right now that's banking: core systems, and the bridge between bank accounts and mobile money. Tomorrow it could be energy, health, anything. The domain changes; the craft travels.",
     seeWork: 'See the work',
     readWriting: 'Read the writing',
     cardLedger: 'The Logbook',
@@ -43,9 +43,9 @@ const COPY = {
     ],
     focusH: 'What I work on',
     focus: [
-      { no: '01', title: 'Going deep into a domain', body: "I don't ship generic software. I learn a field until I can build what it actually needs. Banking today; the method travels to whatever comes next." },
-      { no: '02', title: 'Systems that must be correct', body: 'When the output is real money, a diagnosis, or a harvest, correct beats clever. I build for the parts that cannot fail quietly.' },
-      { no: '03', title: 'From engineering to leadership', body: 'Why building systems is the best training for building teams and companies. The trajectory I am walking, written down as I go.' },
+      { no: '01', title: 'Going deep into a domain', body: "I don't ship generic software. I learn a field until I can build what it actually needs." },
+      { no: '02', title: 'Systems that must be correct', body: 'When the output is real money or a diagnosis, correct beats clever.' },
+      { no: '03', title: 'From engineering to leadership', body: "Building systems is the best training for building teams. I'm walking that road, in public." },
     ],
     workH: 'Selected work',
     workMore: 'All case studies →',
@@ -65,7 +65,7 @@ const COPY = {
     accroche: 'Ici, je montre mon travail et je réfléchis à voix haute.',
     h1: "J'apprends un domaine, puis je construis le logiciel qui le fait tourner.",
     lede:
-      "Aujourd'hui, ce domaine c'est la banque, dans la zone CEMAC : les systèmes centraux, et le pont entre comptes bancaires et portefeuilles mobile money, la tuyauterie qui fait circuler l'argent pour de vrai. Demain, ce sera peut-être l'énergie, la santé, l'agriculture. Le domaine change ; le savoir-faire, lui, voyage.",
+      "Aujourd'hui, c'est la banque : les systèmes centraux, et le pont entre comptes bancaires et mobile money. Demain, l'énergie, la santé, autre chose. Le domaine change ; le savoir-faire, lui, voyage.",
     seeWork: 'Voir les réalisations',
     readWriting: 'Lire les écrits',
     cardLedger: 'Le Carnet',
@@ -78,9 +78,9 @@ const COPY = {
     ],
     focusH: 'Sur quoi je travaille',
     focus: [
-      { no: '01', title: 'Plonger dans un domaine', body: "Je ne livre pas du logiciel générique. J'apprends le terrain jusqu'à savoir construire ce dont il a vraiment besoin. La banque aujourd'hui ; la méthode voyage vers la suite." },
-      { no: '02', title: 'Des systèmes qui doivent être justes', body: "Quand le résultat, c'est de l'argent réel, un diagnostic ou une récolte, la rigueur passe avant l'astuce. Je construis les parties qui ne doivent pas lâcher sans prévenir." },
-      { no: '03', title: "De l'ingénierie au leadership", body: "Pourquoi construire des systèmes est le meilleur apprentissage pour construire des équipes et des entreprises. La trajectoire que je suis, écrite au fil de l'eau." },
+      { no: '01', title: 'Plonger dans un domaine', body: "Je ne livre pas du logiciel générique. J'apprends le terrain jusqu'à savoir construire ce dont il a vraiment besoin." },
+      { no: '02', title: 'Des systèmes qui doivent être justes', body: "Quand le résultat, c'est de l'argent réel ou un diagnostic, la rigueur passe avant l'astuce." },
+      { no: '03', title: "De l'ingénierie au leadership", body: "Construire des systèmes, c'est le meilleur apprentissage pour construire des équipes. J'avance sur cette route, en public." },
     ],
     workH: 'Réalisations',
     workMore: 'Toutes les études de cas →',
@@ -264,12 +264,13 @@ const COPY = {
     transform: rotate(-1.5deg);
     transform-origin: 50% 13px; /* the pin: paper swings around it */
     box-shadow: 0 11px 18px -10px rgba(20, 23, 27, 0.3);
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+    transition: transform 0.6s cubic-bezier(0.22, 1.4, 0.5, 1), box-shadow 0.35s ease;
+    cursor: grab;               /* grab to swing it */
+    touch-action: pan-y;        /* vertical scroll passes through; sideways swings */
+    user-select: none;
+    -webkit-user-select: none;
   }
-  .card:hover .card-body {
-    transform: rotate(1deg); /* swings the other way around the pin */
-    box-shadow: 0 16px 24px -12px rgba(20, 23, 27, 0.32);
-  }
+  .card-body.is-grabbing { cursor: grabbing; }
   /* push-pin — sits across the top edge so it reads as piercing the paper */
   .card::before {
     content: "";
@@ -363,7 +364,67 @@ const COPY = {
     .hero { grid-template-columns: 1fr; }
     .card { order: 2; }
   }
+  /* desktop affordance: a gentle nudge on hover hints the card is grabbable */
+  @media (hover: hover) {
+    .card-body:hover { transform: rotate(0.8deg); }
+  }
   @media (prefers-reduced-motion: reduce) {
-    .card-body, .card:hover .card-body { transform: rotate(-1.5deg); transition: none; }
+    .card-body { transition: none; }
+    .card-body:hover { transform: rotate(-1.5deg); }
   }
 </style>
+
+<script>
+  // Grab the pinned card and swing it around the pin — touch + mouse.
+  // Linear mapping (horizontal drag → tilt), rAF-smoothed, gentle spring back.
+  const REST = -1.5;       // resting tilt (deg), matches CSS
+  const SENS = 0.04;       // deg per px of horizontal drag
+  const MIN = -8, MAX = 5; // gentle swing range around the resting tilt
+
+  function initCardSwing() {
+    document.querySelectorAll('.card-body').forEach((el) => {
+      if (el.dataset.swing) return;
+      el.dataset.swing = '1';
+      let dragging = false;
+      let startX = 0;
+      let angle = REST;
+      let raf = 0;
+
+      const apply = () => {
+        raf = 0;
+        el.style.transform = 'rotate(' + angle.toFixed(2) + 'deg)';
+      };
+
+      el.addEventListener('pointerdown', (e) => {
+        dragging = true;
+        startX = e.clientX;
+        el.style.transition = 'none';
+        el.classList.add('is-grabbing');
+        try { el.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+
+      el.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        let a = REST - (e.clientX - startX) * SENS;
+        angle = a < MIN ? MIN : a > MAX ? MAX : a;
+        if (!raf) raf = requestAnimationFrame(apply);
+      });
+
+      const release = () => {
+        if (!dragging) return;
+        dragging = false;
+        if (raf) { cancelAnimationFrame(raf); raf = 0; }
+        el.classList.remove('is-grabbing');
+        // gentle swing back to rest (one soft overshoot)
+        el.style.transition = 'transform 0.55s cubic-bezier(0.3, 1.25, 0.5, 1)';
+        el.style.transform = '';
+      };
+      el.addEventListener('pointerup', release);
+      el.addEventListener('pointercancel', release);
+      el.addEventListener('lostpointercapture', release);
+    });
+  }
+
+  document.addEventListener('astro:page-load', initCardSwing);
+  if (document.readyState !== 'loading') initCardSwing();
+</script>
