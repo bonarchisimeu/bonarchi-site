@@ -1,0 +1,149 @@
+---
+interface Props {
+  lang: 'en' | 'fr';
+}
+const { lang } = Astro.props;
+
+// Web3Forms access key is public by design (client-side submission).
+const ACCESS_KEY = 'fc86400d-73bc-4f16-873f-25570a903ff3';
+
+const T = {
+  en: {
+    name: 'Name',
+    email: 'Email',
+    message: 'Message',
+    send: 'Send message',
+    sending: 'Sending…',
+    success: "Thanks — your message is on its way. I'll get back to you.",
+    error: 'Something went wrong. You can email me directly at bonarchisimeu@gmail.com.',
+    subject: 'New message from bonarchisimeu.me',
+  },
+  fr: {
+    name: 'Nom',
+    email: 'E-mail',
+    message: 'Message',
+    send: 'Envoyer',
+    sending: 'Envoi…',
+    success: 'Merci — votre message est parti. Je vous réponds vite.',
+    error: 'Un souci est survenu. Écrivez-moi directement à bonarchisimeu@gmail.com.',
+    subject: 'Nouveau message depuis bonarchisimeu.me',
+  },
+}[lang];
+---
+
+<form class="cform" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value={ACCESS_KEY} />
+  <input type="hidden" name="subject" value={T.subject} />
+  <input type="hidden" name="from_name" value="bonarchisimeu.me" />
+  <!-- honeypot -->
+  <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" />
+
+  <label>
+    <span class="meta">{T.name}</span>
+    <input type="text" name="name" required autocomplete="name" />
+  </label>
+  <label>
+    <span class="meta">{T.email}</span>
+    <input type="email" name="email" required autocomplete="email" />
+  </label>
+  <label>
+    <span class="meta">{T.message}</span>
+    <textarea name="message" rows="6" required></textarea>
+  </label>
+
+  <button type="submit" class="cform-send">{T.send}</button>
+  <p class="cform-status" role="status" aria-live="polite"
+     data-sending={T.sending} data-success={T.success} data-error={T.error}></p>
+</form>
+
+<style>
+  .cform { max-width: 38rem; margin-top: 1.5rem; display: grid; gap: 1.1rem; }
+  .hp { position: absolute; left: -9999px; }
+  .cform label { display: grid; gap: 0.4rem; }
+  .cform .meta { color: var(--ink-faint); }
+  .cform input,
+  .cform textarea {
+    font-family: var(--body);
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--paper-2);
+    border: 1px solid var(--rule-strong);
+    border-radius: 2px;
+    padding: 0.65rem 0.8rem;
+    width: 100%;
+    transition: border-color 0.15s ease;
+  }
+  .cform textarea { resize: vertical; }
+  .cform input:focus,
+  .cform textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .cform-send {
+    justify-self: start;
+    font-family: var(--label);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--accent);
+    border: 0;
+    border-radius: 2px;
+    padding: 0.7rem 1.4rem;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .cform-send:hover { background: var(--accent-deep); }
+  .cform-send:active { transform: translateY(1px); }
+  .cform-send[disabled] { opacity: 0.6; cursor: default; }
+  .cform-status { margin: 0; font-size: 0.95rem; min-height: 1.2em; }
+  .cform-status.is-ok { color: var(--ink); }
+  .cform-status.is-err { color: var(--accent-deep); }
+</style>
+
+<script>
+  function initContactForms() {
+    document.querySelectorAll('form.cform').forEach((form) => {
+      if (form.dataset.bound) return;
+      form.dataset.bound = '1';
+      const btn = form.querySelector('.cform-send');
+      const status = form.querySelector('.cform-status');
+      const sendLabel = btn.textContent;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.className = 'cform-status';
+        status.textContent = '';
+        btn.disabled = true;
+        btn.textContent = status.dataset.sending;
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(data),
+          });
+          const json = await res.json();
+          if (json.success) {
+            form.reset();
+            status.textContent = status.dataset.success;
+            status.classList.add('is-ok');
+          } else {
+            status.textContent = status.dataset.error;
+            status.classList.add('is-err');
+          }
+        } catch (_) {
+          status.textContent = status.dataset.error;
+          status.classList.add('is-err');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = sendLabel;
+        }
+      });
+    });
+  }
+  document.addEventListener('astro:page-load', initContactForms);
+  if (document.readyState !== 'loading') initContactForms();
+</script>

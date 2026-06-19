@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ContactForm from '../../components/ContactForm.astro';
 ---
 
 <Base title="Contact" description="Entrer en contact avec Bonarchi SIMEU.">
@@ -7,31 +8,22 @@ import Base from '../../layouts/Base.astro';
     <span class="ledger-no">00</span>
     <h1>Contact</h1>
     <p class="lede">
-      Le plus rapide pour me joindre, c'est le courriel. Je lis tout ; je réponds à presque tout.
+      Un projet à l'intersection du logiciel et du réel ? Laissez un mot. Je lis
+      tout ; je réponds à presque tout.
     </p>
 
-    <ul class="contact-list">
-      <li>
-        <span class="meta">Courriel</span>
-        <a href="mailto:bonarchisimeu@gmail.com">bonarchisimeu@gmail.com</a>
-      </li>
-      <li>
-        <span class="meta">LinkedIn</span>
-        <a href="https://www.linkedin.com/in/bonarchisimeu">linkedin.com/in/bonarchisimeu</a>
-      </li>
-      <li>
-        <span class="meta">GitHub</span>
-        <a href="https://github.com/bonarchisimeu">github.com/bonarchisimeu</a>
-      </li>
-    </ul>
+    <ContactForm lang="fr" />
+
+    <p class="alt">
+      Vous préférez éviter le formulaire ? <a href="mailto:bonarchisimeu@gmail.com">bonarchisimeu@gmail.com</a>
+      · <a href="https://www.linkedin.com/in/bonarchisimeu">LinkedIn</a>
+      · <a href="https://github.com/bonarchisimeu">GitHub</a>
+    </p>
   </article>
 </Base>
 
 <style>
   .prose { padding-top: 2.5rem; max-width: 44rem; }
   .lede { font-size: 1.2rem; color: var(--ink-soft); }
-  .contact-list { list-style: none; padding: 0; }
-  .contact-list li { display: flex; align-items: baseline; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
-  .contact-list .meta { min-width: 6rem; }
-  .contact-list a { font-size: 1.1rem; }
+  .alt { margin-top: 2rem; font-size: 0.9rem; color: var(--ink-faint); }
 </style>
