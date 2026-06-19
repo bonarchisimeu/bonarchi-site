@@ -78,17 +78,33 @@ const ogLocale = lang === 'fr' ? 'fr_FR' : 'en';
           if (window.__gridReveal) return;
           window.__gridReveal = true;
           var x = -500, y = -500, raf = 0;
-          var move = function (e) {
-            x = e.clientX; y = e.clientY;
-            if (!raf) {
-              raf = requestAnimationFrame(function () {
-                document.body.style.setProperty('--mx', x + 'px');
-                document.body.style.setProperty('--my', y + 'px');
-                raf = 0;
-              });
-            }
+          var flush = function () {
+            raf = 0;
+            document.body.style.setProperty('--mx', x + 'px');
+            document.body.style.setProperty('--my', y + 'px');
           };
-          addEventListener('pointermove', move, { passive: true });
+          var set = function (cx, cy) {
+            x = cx; y = cy;
+            if (!raf) raf = requestAnimationFrame(flush);
+          };
+          var hide = function () { set(-500, -500); };
+
+          // Mouse: follow the cursor; hide when it leaves the window.
+          addEventListener('pointermove', function (e) {
+            if (e.pointerType === 'mouse') set(e.clientX, e.clientY);
+          }, { passive: true });
+          document.addEventListener('mouseleave', hide);
+
+          // Touch: follow the finger (passive touchmove keeps firing during
+          // scroll), and clear the reveal as soon as the finger lifts.
+          var fromTouch = function (e) {
+            var t = e.touches && e.touches[0];
+            if (t) set(t.clientX, t.clientY);
+          };
+          addEventListener('touchstart', fromTouch, { passive: true });
+          addEventListener('touchmove', fromTouch, { passive: true });
+          addEventListener('touchend', hide, { passive: true });
+          addEventListener('touchcancel', hide, { passive: true });
         } catch (e) {}
       })();
     </script>
