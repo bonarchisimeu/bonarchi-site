@@ -30,7 +30,7 @@ export const ui = {
     'lang.switch': 'EN',
     'lang.switch.label': 'Read in English',
     'footer.colophon': "Le carnet d'un concepteur logiciel, écrit depuis l'Afrique centrale.",
-    'footer.email': 'Courriel',
+    'footer.email': 'E-mail',
   },
 } as const;
 
