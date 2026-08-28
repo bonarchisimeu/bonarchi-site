@@ -2,6 +2,7 @@
 title: "Why mobile money leapfrogged banks in Central Africa"
 description: "The bank branch never reached most of the CEMAC region. A SIM card did. Here is how that happened, and what it taught me about building software people actually use."
 pubDate: 2026-06-17
+updated: 2026-08-28
 tags: ["fintech", "mobile-money", "cemac"]
 draft: false
 lang: en
@@ -26,7 +27,7 @@ People talk about leapfrogging as if it were magic. It is not. It is what happen
 
 Three things made it work here.
 
-The first is the agent. A mobile money agent needs a phone, a float of cash, and a spot people walk past. That is a branch you can open in a day, in a village a bank would never visit. The distribution problem that defeated banks for decades got solved by people who were already there.
+The first is the agent. A mobile money agent needs a phone, a float of cash, and a spot people walk past. That is a service point you can open in days rather than years, in a village a bank would never visit. The distribution problem that defeated banks for decades got solved by people who were already there.
 
 The second is the phone itself. You do not need a smartphone for mobile money. USSD, those `*126#` codes, runs on the cheapest handset on a weak network. No app store, no data plan, no fight with connectivity. The technology met people where their hardware already was.
 
@@ -44,7 +45,7 @@ Building under these constraints taught me something I now believe generally. In
 
 ## Where this goes
 
-The next layer is already forming. The AfCFTA and regional integration push toward payments that cross borders, not just streets. That is a much harder problem. Different operators, different regulators under the BEAC, different currencies at the edges of the zone. The reconciliation question I described for one bank and one operator multiplies.
+The next layer is already forming. The AfCFTA and regional integration are making cross-border payments, not just cross-street ones, an increasingly concrete question. That is a much harder problem. Different operators, regulatory regimes that do not line up, and once you leave the BEAC zone, a currency that is no longer the same. The reconciliation question I described for one bank and one operator multiplies.
 
 I think the teams that solve it will be the ones who understood the first leap. Mobile money did not win because it was sophisticated. It won because it fit. Whatever comes next has to clear the same bar.
 

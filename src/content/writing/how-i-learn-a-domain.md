@@ -2,6 +2,7 @@
 title: "How I learn a domain"
 description: "I'm not the person who already knows your field. I'm the person who learns it fast enough to build the thing it needs. Here is how."
 pubDate: 2026-06-18
+updated: 2026-08-28
 tags: ["learning", "engineering", "method"]
 draft: false
 lang: en
@@ -34,7 +35,7 @@ None of that was in a tutorial. I learned it because the bridge would have faile
 
 I am studying business, on purpose, while I keep shipping. Economics, accounting, the models of how organisations actually run. Not because I plan to leave engineering. Because leadership is the next domain I want to be able to build in, and I am running the same method on it. Go for the ground truth. Find the invariant. Be wrong early.
 
-There is a line I keep coming back to. Brian Herbert wrote that the capacity to learn is a gift, the ability to learn is a skill, and the willingness to learn is a choice. The capacity I was lucky to get. The skill I have been sharpening for years. The willingness is the part I actually control, and it is the part that travels.
+Three things get confused with each other: being able to learn, knowing how to learn, and wanting to. The first I was lucky to get. The second I have been sharpening for years. The third is the only one I actually control, and it is the part that travels.
 
 ## So, the answer
 

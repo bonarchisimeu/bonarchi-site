@@ -5,7 +5,7 @@ role: "Ingénieur logiciel"
 stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "API sécurisées"]
 year: 2024
 impact: "−45% de temps d'attente client · −40% de temps de traitement par transaction"
-order: 1
+order: 2
 draft: false
 lang: fr
 urlSlug: digitizing-the-branch-journey
@@ -29,8 +29,8 @@ guichetier valide au lieu de ressaisir.
 
 Les parties difficiles étaient les classiques de la banque. Intégration d'API
 sécurisée avec la plateforme centrale. Vérification de compte en temps réel.
-S'assurer qu'une demande créée à distance et une personne qui arrive
-physiquement se réconcilient en un seul événement, jamais deux. Le tout déployé
+S'assurer qu'une demande créée à distance et l'arrivée
+physique du client se réconcilient en une seule opération, jamais deux. Le tout déployé
 via Docker, Kubernetes et des pipelines CI/CD, pour que les mises en production
 restent contrôlées et auditables, ce qui n'est pas négociable en environnement
 régulé.

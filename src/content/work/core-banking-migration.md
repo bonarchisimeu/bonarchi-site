@@ -1,10 +1,9 @@
 ---
 title: "Migrating a legacy core banking module without downtime"
-summary: "Moving a critical ledger component off an aging system while it kept processing live transactions — staged cutover, dual-write, and a rollback plan that actually worked."
+summary: "Moving a critical ledger component off an aging system while it kept processing live transactions, staged cutover, dual-write, and a rollback plan that actually worked."
 role: "Software engineer"
 stack: ["Java", "SQL", "CI/CD"]
 year: 2024
-impact: "TODO: add a concrete result (e.g. zero downtime, X transactions migrated)"
 order: 2
 draft: true
 lang: en
@@ -31,4 +30,4 @@ maintenance window measured in hours.
 
 ## What I took from it
 
-<!-- TODO: the reflection. Risk management under constraints — the leadership angle. -->
+<!-- TODO: the reflection. Risk management under constraints, the leadership angle. -->

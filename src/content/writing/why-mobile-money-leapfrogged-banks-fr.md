@@ -2,6 +2,7 @@
 title: "Pourquoi le mobile money a sauté l'étape de la banque en Afrique centrale"
 description: "L'agence bancaire n'a jamais atteint la majeure partie de la zone CEMAC. Une carte SIM, si. Voici comment c'est arrivé, et ce que ça m'a appris sur la façon de construire des logiciels que les gens utilisent vraiment."
 pubDate: 2026-06-17
+updated: 2026-08-28
 tags: ["fintech", "mobile-money", "cemac"]
 draft: false
 lang: fr
@@ -16,7 +17,7 @@ Je travaille du côté de la banque. Pas l'application portefeuille sur laquelle
 
 Ouvrez un compte dans une banque classique en zone CEMAC et vous tombez sur un mur de conditions. Une agence physique, souvent à des heures de route. Un justificatif de domicile, là où les adresses sont informelles. Des soldes minimums qui excluent la plupart des gens. Une paperasse qui suppose une vie formelle que beaucoup n'ont jamais eue.
 
-La banque n'a pas été pensée pour la vendeuse de tomates au marché de Douala. Alors cette personne est restée tout simplement en dehors du système financier. Pas non-bancarisée par choix. Non-bancarisée par conception.
+La banque n'a pas été pensée pour la vendeuse de tomates au marché de Douala. Alors cette personne est restée tout simplement en dehors du système financier. Pas non-bancarisée par choix. Non-bancarisée par construction.
 
 Puis les opérateurs mobiles sont arrivés avec quelque chose de presque accidentel. Le crédit téléphonique prépayé s'est révélé être une réserve de valeur. Si je peux t'envoyer du crédit, je peux t'envoyer quelque chose de proche de l'argent. Les opérateurs l'ont remarqué, l'ont formalisé, et ont bâti un réseau d'agents humains pour transformer le cash en solde numérique et inversement. MTN Mobile Money et Orange Money n'ont pas attendu un réseau d'agences. Ils ont utilisé celui qui existait déjà : la boutique du coin, dans chaque rue.
 
@@ -26,7 +27,7 @@ On parle du saut technologique comme d'une magie. Ça n'en est pas. C'est ce qui
 
 Trois choses l'ont rendu possible ici.
 
-La première, c'est l'agent. Un agent mobile money a besoin d'un téléphone, d'un fonds de caisse, et d'un endroit où les gens passent. C'est une agence qu'on ouvre en un jour, dans un village qu'une banque ne visiterait jamais. Le problème de distribution qui a tenu les banques en échec pendant des décennies a été réglé par des gens déjà sur place.
+La première, c'est l'agent. Un agent mobile money a besoin d'un téléphone, d'un fonds de caisse, et d'un endroit où les gens passent. C'est un point de service qu'on ouvre en quelques jours, pas en quelques années, dans un village qu'une banque ne visiterait jamais. Le problème de distribution qui a tenu les banques en échec pendant des décennies a été réglé par des gens déjà sur place.
 
 La deuxième, c'est le téléphone lui-même. Pas besoin d'un smartphone pour le mobile money. L'USSD, ces codes en `*126#`, tourne sur le combiné le moins cher et sur un réseau faible. Pas d'app store, pas de forfait data, pas de bagarre avec la connectivité. La technologie a rejoint les gens là où était déjà leur matériel.
 
@@ -44,8 +45,8 @@ Construire sous ces contraintes m'a appris une chose que je crois maintenant val
 
 ## Où ça mène
 
-La couche suivante se forme déjà. La ZLECAf et l'intégration régionale poussent vers des paiements qui traversent les frontières, pas seulement les rues. C'est un problème bien plus dur. Des opérateurs différents, des régulateurs différents sous la BEAC, des monnaies différentes aux bords de la zone. La question de réconciliation que j'ai décrite pour une banque et un opérateur se multiplie.
+La couche suivante se forme déjà. La ZLECAf et l'intégration régionale rendent de plus en plus concrète la question des paiements qui traversent les frontières, pas seulement les rues. C'est un problème bien plus dur. Des opérateurs différents, des régimes réglementaires qui ne se recouvrent pas, et une fois franchie la limite de la zone BEAC, une monnaie qui n'est plus la même. La question de réconciliation que j'ai décrite pour une banque et un opérateur se multiplie.
 
 Je crois que les équipes qui la résoudront seront celles qui auront compris le premier saut. Le mobile money n'a pas gagné parce qu'il était sophistiqué. Il a gagné parce qu'il collait au terrain. Ce qui viendra ensuite devra passer la même barre.
 
-C'est le prisme que j'apporte à tout ça. Construire pour le terrain sur lequel on se tient vraiment.
+C'est avec ça que j'aborde le reste. Construire pour le terrain sur lequel on se tient vraiment.

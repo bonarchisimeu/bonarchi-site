@@ -5,7 +5,7 @@ role: "Software Engineer"
 stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Secure APIs"]
 year: 2024
 impact: "−45% client wait time · −40% processing time per transaction"
-order: 1
+order: 2
 draft: false
 lang: en
 urlSlug: digitizing-the-branch-journey
@@ -28,7 +28,7 @@ re-typing.
 
 The hard parts were the usual banking ones. Secure API integration with the core
 platform. Real-time account verification. Making sure a request created remotely
-and a person arriving physically reconcile to one event, never two. It shipped
+and the customer's physical arrival reconcile into a single operation, never two. It shipped
 through Docker, Kubernetes and CI/CD pipelines, so releases stayed controlled and
 auditable, which is non-negotiable in a regulated environment.
 

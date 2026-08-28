@@ -2,6 +2,7 @@
 title: "Comment j'apprends un domaine"
 description: "Je ne suis pas celui qui connaît déjà ton domaine. Je suis celui qui l'apprend assez vite pour construire ce dont il a besoin. Voici comment."
 pubDate: 2026-06-18
+updated: 2026-08-28
 tags: ["apprentissage", "ingénierie", "méthode"]
 draft: false
 lang: fr
@@ -20,7 +21,7 @@ D'abord, je vais chercher la vérité du terrain, pas le slide. Chaque domaine a
 
 Ensuite, je cherche la seule chose qui ne doit pas casser. Chaque domaine a un invariant, une ligne qu'on ne franchit pas sous peine que rien d'autre ne compte. En banque, elle est simple à dire et brutale à tenir : aucun franc créé, aucun perdu. Trouve cette ligne tôt. Construis tout autour de sa protection.
 
-Ensuite, je livre quelque chose de petit et je laisse la réalité me corriger. Le moyen le plus rapide d'apprendre un domaine, c'est d'avoir tort devant lui. Une fonctionnalité qui casse sur un vrai cas limite m'apprend plus qu'un mois de lecture. Alors j'arrive à ce moment exprès, vite.
+Ensuite, je livre quelque chose de petit et je laisse la réalité me corriger. Le moyen le plus rapide d'apprendre un domaine, c'est d'avoir tort devant lui. Une fonctionnalité qui casse sur un vrai cas limite m'apprend plus qu'un mois de lecture. Alors je cherche à provoquer ce moment, le plus tôt possible.
 
 ## Ce que la banque m'a appris à chercher
 
@@ -34,7 +35,7 @@ Rien de tout ça n'était dans un tutoriel. Je l'ai appris parce que le pont aur
 
 J'étudie le business en parallèle, sans cesser de livrer. L'économie, la comptabilité, les modèles de fonctionnement réel des organisations. Pas parce que je compte quitter l'ingénierie. Parce que le leadership est le prochain domaine dans lequel je veux pouvoir construire, et je lui applique la même méthode. Aller à la vérité du terrain. Trouver l'invariant. Avoir tort tôt.
 
-Il y a une phrase qui me revient. Brian Herbert a écrit que la capacité d'apprendre est un don, l'aptitude à apprendre une compétence, et la volonté d'apprendre un choix. La capacité, j'ai eu la chance de l'avoir. L'aptitude, je l'aiguise depuis des années. La volonté, c'est la part que je contrôle vraiment, et c'est celle qui voyage.
+Il y a trois choses qu'on confond souvent : pouvoir apprendre, savoir apprendre, et vouloir apprendre. La première, j'ai eu la chance de l'avoir. La deuxième, je l'aiguise depuis des années. La troisième est la seule que je contrôle vraiment, et c'est celle qui voyage.
 
 ## Donc, la réponse
 
