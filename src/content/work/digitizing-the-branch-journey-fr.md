@@ -38,7 +38,7 @@ définissent le problème réel, et ce n'est pas celui qu'on croit au départ.
 
 ## Ce que j'ai construit
 
-J'ai travaillé à connecter le canal à distance au comptoir de l'agence. Un client
+J'ai travaillé à connecter le canal à distance au guichet. Un client
 peut désormais lancer une transaction depuis son téléphone. Quand il arrive en
 agence, la demande est déjà dans la bonne file, pré-remplie, et reliée aux
 systèmes centraux de la banque pour la vérification de compte en temps réel. Le

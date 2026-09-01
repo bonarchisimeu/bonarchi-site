@@ -125,7 +125,7 @@ Le problème n'était pas le ticket. C'était tout ce qui se passait autour.
 Un réseau de plus de 85 agences, et cette scène qui se rejouait chaque jour dans
 chacune.
 
-J'ai travaillé à connecter le canal à distance au comptoir. Le client lance sa
+J'ai travaillé à connecter le canal à distance au guichet. Le client lance sa
 transaction depuis son téléphone. Quand il arrive, la demande est déjà dans la
 bonne file, pré-remplie, reliée aux systèmes centraux pour la vérification de
 compte en temps réel.
