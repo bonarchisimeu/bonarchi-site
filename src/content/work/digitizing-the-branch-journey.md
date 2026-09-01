@@ -13,27 +13,30 @@ urlSlug: digitizing-the-branch-journey
 
 ## Context
 
-A Central African bank with branches spread across the country. The customer
-journey was still mostly analog. You walked in, took a ticket, waited, and only
-then started explaining what you came to do. The teller keyed everything from
-scratch while you stood there.
+A Central African bank with branches spread across the country. Before the project
+the journey was mostly analog. You walked in, took a ticket, waited, and only then
+started explaining what you came to do. The teller keyed everything from scratch
+while you stood there.
 
-The system is physical and real time: kiosks that print tickets, screens in the
-hall, a voice announcement that calls the number and points to the counter.
+The system replaces that with a chain of connected equipment. The customer takes a
+ticket at a kiosk. Screens show the numbers being called and the matching counter.
+A voice announces the call across the hall. And at their station, the teller
+watches the queue fill and calls the next one.
 
-Keeping all of that alive is the real cost. Every kiosk, every screen, every teller
-station holds an open WebSocket connection to the central system, multiplied by the
-number of branches. That is a lot of links to watch, restore and resynchronise. A device that
-reconnects must not replay history, it has to catch up to current state
-immediately. Inside one hall, the screen, the voice and the teller's view have to
-say the same thing at the same moment: a screen showing a stale number is worse
-than no screen at all. And the teller watches the queue fill in live, a ticket
-taken at the kiosk appearing on the station without anyone refreshing anything.
+All of it has to agree, at the same moment, in the same room. That is where the
+project stops being an application and becomes a real time system. Every kiosk,
+every screen, every station holds an open WebSocket connection to the central
+service. One branch is already several permanent links. A national network is that
+many connections that can drop, come back, or drift out of sync. A device that
+reconnects has to catch up to current state rather than replay history, and a
+screen showing a stale number is worse than no screen at all.
 
-Two constraints shape everything else. The order customers are served in is a
-guarantee: nobody accepts being skipped. And a network spread across a whole
-country will always end up with a link failing somewhere. Those two facts together
-define the real problem, and it is not the one you expect at the start.
+Two rules would shape the whole design. First, the order customers are served in.
+Nobody accepts being skipped, least of all because a device lost its connection.
+Second, the network will always fail somewhere, and a branch does not stop for it.
+
+So the job was to design the normal path, but also the outage, and above all the
+return.
 
 ## What I built
 
@@ -51,7 +54,7 @@ auditable, which is non-negotiable in a regulated environment.
 
 ## When the network drops
 
-A central system, branches spread across the country, and one guarantee to hold:
+A central system, branches spread across the country, and one rule to preserve:
 the order customers are served in. While the link holds, this is simple. The day it
 breaks somewhere, the branch does not close.
 
@@ -69,7 +72,7 @@ by hand and once on recovery?
 
 That was the part that took the most thought, and it appeared in no specification.
 
-The answer ended up fitting in one function. On recovery, someone enters the last
+The answer ended up fitting in one simple rule. On recovery, someone enters the last
 number handed out on paper. The system creates the missing tickets up to that
 number, then moves the queue head to the next one to call.
 
@@ -91,7 +94,7 @@ mechanical entry and more of the judgment work only a person can do.
 ## What I took from it
 
 It also taught me something I had not expected. A system is judged on its nominal
-path and adopted or abandoned on its degraded one. Designing the outage and the
+path. It is adopted or abandoned on its degraded one. Designing the outage and the
 return is not defensive work, it is what decides whether people still use the thing
 six months later.
 

@@ -13,33 +13,37 @@ urlSlug: digitizing-the-branch-journey
 
 ## Contexte
 
-Une banque d'Afrique centrale, un réseau d'agences réparties sur tout le pays. Le
-parcours client était encore largement analogique. On entrait, on prenait un
-ticket, on attendait, et ce n'est qu'ensuite qu'on commençait à expliquer ce qu'on
-venait faire. Le guichetier saisissait tout depuis zéro pendant qu'on patientait.
+Une banque d'Afrique centrale, un réseau d'agences réparties sur tout le pays.
+Avant, le parcours était largement analogique. On entrait, on prenait un ticket, on
+attendait, et ce n'est qu'ensuite qu'on commençait à expliquer ce qu'on venait
+faire. Le guichetier saisissait tout depuis zéro pendant qu'on patientait.
 
-Le système est physique et temps réel : des kiosques pour prendre un ticket, des
-écrans dans la salle, un appel vocal qui annonce le numéro et indique le guichet.
+Le système remplace ça par une chaîne d'équipements. Le client prend son ticket sur
+un kiosque. Des écrans affichent les numéros appelés et le guichet correspondant.
+Une voix annonce l'appel dans la salle. Et à son poste, le guichetier voit sa file
+se remplir et appelle le suivant.
 
-Maintenir tout ça en vie est le coût réel. Chaque kiosque, chaque écran, chaque
-poste de guichet tient une connexion WebSocket ouverte vers le système central,
-multipliée par le nombre d'agences. Ce sont autant de liens à surveiller, à rétablir et à
-resynchroniser. Un appareil qui se reconnecte ne doit pas rejouer l'historique, il
-doit rattraper l'état courant immédiatement. Et dans une même salle, l'écran, la
-voix et le poste du guichetier doivent dire la même chose au même instant : un
-écran qui affiche un numéro périmé est pire que pas d'écran du tout. Le guichetier,
-lui, voit sa file se remplir en direct : un ticket pris au kiosque apparaît sur son
-poste sans qu'il ait à rafraîchir quoi que ce soit.
+Tout cela doit rester d'accord, au même instant, dans la même salle. C'est là que
+le projet cesse d'être une application pour devenir un système temps réel. Chaque
+kiosque, chaque écran, chaque poste tient une connexion WebSocket ouverte vers le
+service central. Une seule agence, c'est déjà plusieurs liens permanents. Un réseau
+national, c'est autant de connexions qui peuvent tomber, revenir, ou se
+désynchroniser. Un appareil qui se reconnecte doit rattraper l'état courant, pas
+rejouer l'historique, et un écran qui affiche un numéro périmé est pire que pas
+d'écran du tout.
 
-Deux contraintes structurent tout le reste. L'ordre de passage est une garantie :
-personne n'accepte d'être doublé. Et un réseau étendu sur un pays entier finit
-toujours par avoir une liaison qui lâche quelque part. Ces deux faits ensemble
-définissent le problème réel, et ce n'est pas celui qu'on croit au départ.
+Deux règles allaient structurer toute la conception. La première : l'ordre de
+passage. Personne n'accepte d'être doublé, et surtout pas parce qu'un équipement a
+perdu sa connexion. La seconde : le réseau finit toujours par couper quelque part,
+et une agence ne s'arrête pas pour autant.
+
+Il fallait donc concevoir le fonctionnement normal, mais aussi la coupure, et
+surtout le retour.
 
 ## Ce que j'ai construit
 
 J'ai travaillé à connecter le canal à distance au guichet. Un client
-peut désormais lancer une transaction depuis son téléphone. Quand il arrive en
+peut désormais initier une transaction depuis son téléphone. Quand il arrive en
 agence, la demande est déjà dans la bonne file, pré-remplie, et reliée aux
 systèmes centraux de la banque pour la vérification de compte en temps réel. Le
 guichetier valide au lieu de ressaisir.
@@ -54,7 +58,7 @@ régulé.
 
 ## Quand le réseau coupe
 
-Un système central, des agences réparties, et une garantie à tenir : l'ordre de
+Un système central, des agences réparties, et une règle à préserver : l'ordre de
 passage. Tant que la liaison tient, c'est simple. Le jour où elle casse quelque
 part, l'agence ne ferme pas pour autant.
 
@@ -74,7 +78,7 @@ vérité au lieu d'être contourné ? Que fait-on d'un client compté deux fois,
 C'est la partie qui a demandé le plus de réflexion, et elle ne figurait dans aucune
 spécification.
 
-La réponse a fini par tenir en une fonction. À la reprise, on saisit le dernier
+La réponse a fini par tenir dans une règle simple. À la reprise, on saisit le dernier
 numéro distribué à la main. Le système crée les tickets manquants jusqu'à ce numéro,
 puis déplace la tête de file sur le prochain à appeler.
 
@@ -102,7 +106,7 @@ rejoint les gens là où ils sont déjà, sur le téléphone qu'ils ont en main,
 respecte le temps du personnel d'agence.
 
 Il m'a appris autre chose, que je n'avais pas anticipé. On juge un système sur son
-chemin nominal, et on l'adopte ou on l'abandonne sur son chemin dégradé. Concevoir
+chemin nominal. On l'adopte ou on l'abandonne sur son chemin dégradé. Concevoir
 la panne et le retour n'est pas du travail défensif : c'est ce qui décide si les
 gens s'en servent encore six mois plus tard. Une bonne partie de ma réflexion
 actuelle a commencé ici.
