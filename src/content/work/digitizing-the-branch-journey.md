@@ -50,6 +50,16 @@ instead of being worked around? What do you do with a customer counted twice, on
 by hand and once on recovery?
 
 That was the part that took the most thought, and it appeared in no specification.
+
+The answer ended up fitting in one function. On recovery, someone enters the last
+number handed out on paper. The system creates the missing tickets up to that
+number, then moves the queue head to the next one to call.
+
+No complicated merge, no arbitration between two competing truths. The system
+catches up with reality instead of asking reality to conform to it. The sequence
+stays continuous, the order already served on site is preserved, and the branch
+picks up where it left off without re-keying its morning.
+
 The nominal path takes a few days to design. The degraded path, and above all the
 return, decide whether the system is still in use six months later or whether
 everyone kept the paper.

@@ -53,9 +53,20 @@ vérité au lieu d'être contourné ? Que fait-on d'un client compté deux fois,
 à la main et une fois à la reprise ?
 
 C'est la partie qui a demandé le plus de réflexion, et elle ne figurait dans aucune
-spécification. Le chemin nominal se conçoit en quelques jours. Le chemin dégradé, et
-surtout le retour, décident si le système est encore utilisé six mois plus tard ou
-si tout le monde a gardé le papier.
+spécification.
+
+La réponse a fini par tenir en une fonction. À la reprise, on saisit le dernier
+numéro distribué à la main. Le système crée les tickets manquants jusqu'à ce numéro,
+puis déplace la tête de file sur le prochain à appeler.
+
+Pas de fusion compliquée, pas d'arbitrage entre deux vérités concurrentes. Le
+système rattrape la réalité, au lieu de demander à la réalité de se conformer à lui.
+La séquence reste continue, l'ordre servi sur place est préservé, et l'agence
+repart là où elle en était sans ressaisir sa matinée.
+
+Le chemin nominal se conçoit en quelques jours. Le chemin dégradé, et surtout le
+retour, décident si le système est encore utilisé six mois plus tard ou si tout le
+monde a gardé le papier.
 
 ## Impact
 
