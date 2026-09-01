@@ -27,9 +27,19 @@ Then I ship something small and let reality correct me. The fastest way to learn
 
 I did not arrive in banking knowing banking. I arrived knowing how to build systems, and I learned the domain by building inside it.
 
-The project that taught me the most was a bridge. A customer has money in a bank account and money in a mobile money wallet, and wants to move it between the two. Two systems that were never meant to talk to each other, over a network that drops, with real money on the line. To build that correctly I had to learn the domain's rules, not just its vocabulary. What reconciliation really means at the close of a day. Why idempotency is not a textbook word but the thing that stops a customer being charged twice when their phone loses signal mid-payment. What the regulator will and will not accept.
+The project that taught me the most was a queue. Nothing glamorous: managing the order customers are served in a branch, and digitising the journey around it.
 
-None of that was in a tutorial. I learned it because the bridge would have failed without it.
+On paper it is trivial. In practice there is a central system, a network of dozens of branches, volume that slows everything down, and a link that eventually drops somewhere.
+
+That is where the real problem showed up, and it was not technical at first. When the system goes down, the branch does not close. Staff fall back to paper tickets and call people by voice. That is the right call: you do not send customers home because a server stopped answering.
+
+Then the network comes back.
+
+And with it, the questions I had not seen coming. How do you resume without breaking the order already served on site? How do you fold in tickets that exist only on paper, so the system becomes the source of truth again instead of being worked around? What do you do with customers counted twice, once by hand and once on recovery?
+
+I had designed the nominal path. The domain taught me that what matters is the degraded path, and above all the return. A system you cannot catch up after an outage does not get picked back up by its users. It gets abandoned, and everyone keeps the paper.
+
+None of that was in a specification. I learned it because the system would have died without it.
 
 ## Why I am deliberately learning a new domain right now
 

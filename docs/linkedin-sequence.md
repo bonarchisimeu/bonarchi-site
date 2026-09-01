@@ -70,11 +70,15 @@ les plans.
 ## Semaine 2 — Comment j'apprends un domaine
 `bonarchisimeu.me/fr/writing/how-i-learn-a-domain/`
 
-On me pose toujours une variante de la même question. Comment construire du
-logiciel pour la banque si on n'est pas banquier ?
+> Révisé après le post 1 (594 impressions, 69 % hors réseau, mais 1 seul clic et
+> 0 commentaire) : on laisse une raison de cliquer et on finit sur une question.
 
-Voici la réponse honnête. Je ne suis pas celui qui connaît déjà le domaine. Je
-suis celui qui l'apprend assez vite pour construire ce dont il a besoin.
+On me pose toujours une variante de la même question.
+
+Comment construire du logiciel pour la banque si on n'est pas banquier ?
+
+Voici la réponse honnête. Je ne suis pas celui qui connaît déjà le domaine. Je suis
+celui qui l'apprend assez vite pour construire ce dont il a besoin.
 
 Quand j'entre quelque part, je cherche trois choses.
 
@@ -83,20 +87,25 @@ officielle et une vraie. La vraie est dans ce que les gens font à 16h un vendre
 quand le système rame et que la file s'allonge. Alors j'observe celui qui fait le
 travail, pas celui qui le décrit.
 
-L'invariant. La seule ligne qui ne doit pas casser, sous peine que rien d'autre ne
-compte. En banque elle est simple à dire et brutale à tenir : aucun franc créé,
+L'invariant. La seule ligne qui ne doit jamais casser, sous peine que rien d'autre
+ne compte. En banque elle est simple à dire et brutale à tenir : aucun franc créé,
 aucun perdu.
 
 Et le moment où j'ai tort. Le moyen le plus rapide d'apprendre un domaine, c'est
 d'avoir tort devant lui. Une fonctionnalité qui casse sur un vrai cas limite
-m'apprend plus qu'un mois de lecture, donc je cherche à provoquer ce moment le
-plus tôt possible.
+m'apprend plus qu'un mois de lecture.
 
-Le domaine changera. La banque aujourd'hui, autre chose ensuite. Ce que je
-transporte entre les deux, ce n'est pas un stock de connaissances. C'est une façon
-d'entrer.
+Tout ça reste théorique tant qu'on ne l'a pas payé. Dans mon cas, c'est un
+gestionnaire de file d'attente en agence qui me l'a appris. Le jour où le réseau a
+coupé, le personnel a repris des tickets papier et appelé les clients à la voix.
+C'était la bonne décision. Le problème est arrivé quand le réseau est revenu.
+
+J'ai écrit la méthode complète, et ce que ce projet m'a coûté pour la comprendre :
 
 → [lien]
+
+Et vous, quel domaine avez-vous dû apprendre en marchant ? Ce qui m'intéresse
+surtout : qu'est-ce qui vous a fait comprendre que vous aviez tort la première fois ?
 
 #SoftwareEngineering #Apprentissage #Ingénierie
 

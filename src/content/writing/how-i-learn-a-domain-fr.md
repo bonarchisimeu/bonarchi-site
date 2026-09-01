@@ -27,9 +27,19 @@ Ensuite, je livre quelque chose de petit et je laisse la réalité me corriger. 
 
 Je ne suis pas arrivé dans la banque en connaissant la banque. Je suis arrivé en sachant construire des systèmes, et j'ai appris le domaine en construisant dedans.
 
-Le projet qui m'a le plus appris était un pont. Un client a de l'argent sur un compte bancaire et de l'argent dans un portefeuille mobile money, et il veut le déplacer entre les deux. Deux systèmes qui n'ont jamais été conçus pour se parler, sur un réseau qui coupe, avec de l'argent réel en jeu. Pour le construire correctement, j'ai dû apprendre les règles du domaine, pas seulement son vocabulaire. Ce que veut vraiment dire la réconciliation à la clôture d'une journée. Pourquoi l'idempotence n'est pas un mot de manuel mais ce qui empêche un client d'être débité deux fois quand son téléphone perd le réseau en plein paiement. Ce que le régulateur accepte, et ce qu'il refuse.
+Le projet qui m'a le plus appris était une file d'attente. Rien de spectaculaire : gérer l'ordre de passage des clients en agence, et digitaliser le parcours autour.
 
-Rien de tout ça n'était dans un tutoriel. Je l'ai appris parce que le pont aurait échoué sans.
+Sur le papier, c'est trivial. En pratique, il y a un système central, un réseau de dizaines d'agences, une volumétrie qui ralentit tout, et une liaison qui finit toujours par couper quelque part.
+
+C'est là que le vrai problème est apparu, et il n'était pas technique au départ. Quand le système tombe, l'agence ne ferme pas. Le personnel reprend des tickets papier et appelle les clients à la voix. C'est la bonne décision : on ne renvoie pas les gens chez eux parce qu'un serveur ne répond plus.
+
+Puis le réseau revient.
+
+Et là arrivent les questions que je n'avais pas vues venir. Comment reprendre sans casser l'ordre déjà servi sur place ? Comment réintégrer des tickets qui n'existent que sur papier, pour que le système redevienne la source de vérité au lieu d'être contourné ? Que fait-on des clients comptés deux fois, une fois à la main et une fois au retour ?
+
+J'avais conçu le chemin nominal. Le domaine, lui, m'a appris que ce qui compte est le chemin dégradé, et surtout le retour. Un système qu'on ne peut pas rattraper après une coupure n'est pas repris par ses utilisateurs : il est abandonné, et on garde le papier.
+
+Rien de tout ça n'était dans une spécification. Je l'ai appris parce que le système serait mort sans.
 
 ## Pourquoi j'apprends délibérément un nouveau domaine en ce moment
 
