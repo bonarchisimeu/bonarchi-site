@@ -39,7 +39,9 @@ Et là arrivent les questions que je n'avais pas vues venir. Comment reprendre s
 
 J'avais conçu le chemin nominal. Le domaine, lui, m'a appris que ce qui compte est le chemin dégradé, et surtout le retour. Un système qu'on ne peut pas rattraper après une coupure n'est pas repris par ses utilisateurs : il est abandonné, et on garde le papier.
 
-Rien de tout ça n'était dans une spécification. Je l'ai appris parce que le système serait mort sans.
+Le même apprentissage s'est répété ailleurs. Sur le pont entre un compte bancaire et un portefeuille mobile money, ce sont d'autres règles du domaine qui me sont tombées dessus : ce que veut vraiment dire la réconciliation à la clôture d'une journée, pourquoi l'idempotence n'est pas un mot de manuel mais ce qui empêche un client d'être débité deux fois quand son téléphone perd le réseau en plein paiement, et ce que le régulateur accepte ou refuse.
+
+Rien de tout ça n'était dans une spécification. Je l'ai appris parce que ces systèmes seraient morts sans.
 
 ## Pourquoi j'apprends délibérément un nouveau domaine en ce moment
 

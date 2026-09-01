@@ -39,7 +39,9 @@ And with it, the questions I had not seen coming. How do you resume without brea
 
 I had designed the nominal path. The domain taught me that what matters is the degraded path, and above all the return. A system you cannot catch up after an outage does not get picked back up by its users. It gets abandoned, and everyone keeps the paper.
 
-None of that was in a specification. I learned it because the system would have died without it.
+The same lesson repeated elsewhere. On the bridge between a bank account and a mobile money wallet, a different set of domain rules landed on me: what reconciliation at end of day actually means, why idempotency is not a textbook word but the thing that stops a customer being debited twice when their phone drops mid-payment, and what the regulator will and will not accept.
+
+None of that was in a specification. I learned it because those systems would have died without it.
 
 ## Why I am deliberately learning a new domain right now
 
