@@ -35,6 +35,28 @@ via Docker, Kubernetes et des pipelines CI/CD, pour que les mises en production
 restent contrôlées et auditables, ce qui n'est pas négociable en environnement
 régulé.
 
+## Quand le réseau coupe
+
+Un système central, des agences réparties, et une garantie à tenir : l'ordre de
+passage. Tant que la liaison tient, c'est simple. Le jour où elle casse quelque
+part, l'agence ne ferme pas pour autant.
+
+Le personnel reprend des tickets papier et appelle les clients à la voix. C'est la
+bonne décision, et aucun logiciel ne devrait chercher à l'empêcher. On ne renvoie
+pas des gens chez eux parce qu'un serveur ne répond plus.
+
+Le problème arrive au retour du réseau.
+
+Comment reprendre sans casser l'ordre déjà servi sur place ? Comment réintégrer des
+tickets qui n'existent que sur papier, pour que le système redevienne la source de
+vérité au lieu d'être contourné ? Que fait-on d'un client compté deux fois, une fois
+à la main et une fois à la reprise ?
+
+C'est la partie qui a demandé le plus de réflexion, et elle ne figurait dans aucune
+spécification. Le chemin nominal se conçoit en quelques jours. Le chemin dégradé, et
+surtout le retour, décident si le système est encore utilisé six mois plus tard ou
+si tout le monde a gardé le papier.
+
 ## Impact
 
 Le temps d'attente client a baissé d'environ 45 %. Le temps de traitement par

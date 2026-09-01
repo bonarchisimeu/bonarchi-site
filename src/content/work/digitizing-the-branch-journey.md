@@ -32,6 +32,28 @@ and the customer's physical arrival reconcile into a single operation, never two
 through Docker, Kubernetes and CI/CD pipelines, so releases stayed controlled and
 auditable, which is non-negotiable in a regulated environment.
 
+## When the network drops
+
+A central system, branches spread across the country, and one guarantee to hold:
+the order customers are served in. While the link holds, this is simple. The day it
+breaks somewhere, the branch does not close.
+
+Staff fall back to paper tickets and call people by voice. That is the right call,
+and no software should try to prevent it. You do not send customers home because a
+server stopped answering.
+
+The problem arrives when the network comes back.
+
+How do you resume without breaking the order already served on site? How do you fold
+in tickets that exist only on paper, so the system becomes the source of truth again
+instead of being worked around? What do you do with a customer counted twice, once
+by hand and once on recovery?
+
+That was the part that took the most thought, and it appeared in no specification.
+The nominal path takes a few days to design. The degraded path, and above all the
+return, decide whether the system is still in use six months later or whether
+everyone kept the paper.
+
 ## Impact
 
 Client wait time dropped about 45 percent. Processing time per transaction

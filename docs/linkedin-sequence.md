@@ -70,8 +70,10 @@ les plans.
 ## Semaine 2 — Comment j'apprends un domaine
 `bonarchisimeu.me/fr/writing/how-i-learn-a-domain/`
 
-> Révisé après le post 1 (594 impressions, 69 % hors réseau, mais 1 seul clic et
-> 0 commentaire) : on laisse une raison de cliquer et on finit sur une question.
+> Révisé après le post 1 (594 impressions, 69 % hors réseau, 1 clic, 0 commentaire) :
+> une raison de cliquer, une question à la fin, et la triade pouvoir/savoir/vouloir
+> en montée finale. La méthode n'est plus annoncée comme « trois choses » pour ne pas
+> concurrencer cette triade.
 
 On me pose toujours une variante de la même question.
 
@@ -80,32 +82,31 @@ Comment construire du logiciel pour la banque si on n'est pas banquier ?
 Voici la réponse honnête. Je ne suis pas celui qui connaît déjà le domaine. Je suis
 celui qui l'apprend assez vite pour construire ce dont il a besoin.
 
-Quand j'entre quelque part, je cherche trois choses.
+Quand j'entre quelque part, je cherche la vérité du terrain, pas la documentation.
+Chaque domaine a une histoire officielle et une vraie. La vraie est dans ce que les
+gens font à 16h un vendredi, quand le système rame et que la file s'allonge.
 
-La vérité du terrain, pas la documentation. Chaque domaine a une histoire
-officielle et une vraie. La vraie est dans ce que les gens font à 16h un vendredi,
-quand le système rame et que la file s'allonge. Alors j'observe celui qui fait le
-travail, pas celui qui le décrit.
+Puis l'invariant. La seule ligne qui ne doit jamais casser, sous peine que rien
+d'autre ne compte. En banque : aucun franc créé, aucun perdu.
 
-L'invariant. La seule ligne qui ne doit jamais casser, sous peine que rien d'autre
-ne compte. En banque elle est simple à dire et brutale à tenir : aucun franc créé,
-aucun perdu.
-
-Et le moment où j'ai tort. Le moyen le plus rapide d'apprendre un domaine, c'est
-d'avoir tort devant lui. Une fonctionnalité qui casse sur un vrai cas limite
-m'apprend plus qu'un mois de lecture.
+Et enfin le moment où j'ai tort, que je cherche à provoquer le plus tôt possible.
+Une fonctionnalité qui casse sur un vrai cas limite m'apprend plus qu'un mois de
+lecture.
 
 Tout ça reste théorique tant qu'on ne l'a pas payé. Dans mon cas, c'est un
 gestionnaire de file d'attente en agence qui me l'a appris. Le jour où le réseau a
 coupé, le personnel a repris des tickets papier et appelé les clients à la voix.
 C'était la bonne décision. Le problème est arrivé quand le réseau est revenu.
 
-J'ai écrit la méthode complète, et ce que ce projet m'a coûté pour la comprendre :
+Il y a trois choses qu'on confond souvent : pouvoir apprendre, savoir apprendre, et
+vouloir apprendre. La première, j'ai eu la chance de l'avoir. La deuxième, je
+l'aiguise depuis des années. La troisième est la seule que je contrôle vraiment, et
+c'est celle qui voyage.
 
 → [lien]
 
-Et vous, quel domaine avez-vous dû apprendre en marchant ? Ce qui m'intéresse
-surtout : qu'est-ce qui vous a fait comprendre que vous aviez tort la première fois ?
+Et vous, quel domaine avez-vous dû apprendre en marchant ? Qu'est-ce qui vous a fait
+comprendre que vous aviez tort la première fois ?
 
 #SoftwareEngineering #Apprentissage #Ingénierie
 
