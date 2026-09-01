@@ -13,7 +13,7 @@ urlSlug: digitizing-the-branch-journey
 
 ## Contexte
 
-Une banque d'Afrique centrale, réseau de 85+ agences. Le parcours client était
+Une banque d'Afrique centrale, réseau de 95 agences. Le parcours client était
 encore largement analogique. On entrait, on prenait un ticket, on attendait, et
 ce n'est qu'ensuite qu'on commençait à expliquer ce qu'on venait faire. Le
 guichetier saisissait tout depuis zéro pendant qu'on patientait. La file

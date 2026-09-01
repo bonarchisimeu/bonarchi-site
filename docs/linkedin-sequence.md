@@ -93,7 +93,7 @@ Et enfin le moment où j'ai tort, que je cherche à provoquer le plus tôt possi
 Une fonctionnalité qui casse sur un vrai cas limite m'apprend plus qu'un mois de
 lecture.
 
-Tout ça reste théorique tant qu'on ne l'a pas payé. Dans mon cas, c'est un
+Tout ça reste de la théorie tant qu'on ne l'a pas vécu. Dans mon cas, c'est un
 gestionnaire de file d'attente en agence qui me l'a appris. Le jour où le réseau a
 coupé, le personnel a repris des tickets papier et appelé les clients à la voix.
 C'était la bonne décision. Le problème est arrivé quand le réseau est revenu.

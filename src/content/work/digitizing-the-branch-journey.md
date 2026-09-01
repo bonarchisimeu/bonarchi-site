@@ -13,7 +13,7 @@ urlSlug: digitizing-the-branch-journey
 
 ## Context
 
-A Central African bank with a network of 85+ branches. The customer journey was
+A Central African bank with a network of 95 branches. The customer journey was
 still mostly analog. You walked in, took a ticket, waited, and only then started
 explaining what you came to do. The teller keyed everything from scratch while
 you stood there. The queue absorbed all of it, every day, in every branch.
