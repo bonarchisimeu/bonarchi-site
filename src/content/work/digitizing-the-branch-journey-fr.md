@@ -1,6 +1,6 @@
 ---
 title: "Digitaliser le parcours client en agence"
-summary: "Le client démarre une transaction depuis son téléphone. Elle arrive pré-remplie dans la bonne file d'agence, déjà reliée aux systèmes centraux. Le temps d'attente et le temps de traitement ont fortement baissé."
+summary: "Un système central de gestion de file pour un réseau d'agences, et le parcours client digitalisé autour. Le temps d'attente et le temps de traitement ont fortement baissé. La partie difficile n'était pas le chemin nominal, c'était le retour après une coupure réseau."
 role: "Ingénieur logiciel"
 stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "API sécurisées"]
 year: 2024
@@ -13,11 +13,15 @@ urlSlug: digitizing-the-branch-journey
 
 ## Contexte
 
-Une banque d'Afrique centrale, réseau de 95 agences. Le parcours client était
-encore largement analogique. On entrait, on prenait un ticket, on attendait, et
-ce n'est qu'ensuite qu'on commençait à expliquer ce qu'on venait faire. Le
-guichetier saisissait tout depuis zéro pendant qu'on patientait. La file
-absorbait tout ça, chaque jour, dans chaque agence.
+Une banque d'Afrique centrale, un réseau d'agences réparties sur tout le pays. Le
+parcours client était encore largement analogique. On entrait, on prenait un
+ticket, on attendait, et ce n'est qu'ensuite qu'on commençait à expliquer ce qu'on
+venait faire. Le guichetier saisissait tout depuis zéro pendant qu'on patientait.
+
+Deux contraintes structurent tout le reste. L'ordre de passage est une garantie :
+personne n'accepte d'être doublé. Et un réseau étendu sur un pays entier finit
+toujours par avoir une liaison qui lâche quelque part. Ces deux faits ensemble
+définissent le problème réel, et ce n'est pas celui qu'on croit au départ.
 
 ## Ce que j'ai construit
 
@@ -80,5 +84,10 @@ faire.
 C'est le projet qui m'a convaincu que le logiciel à plus fort levier dans une
 banque, ce n'est pas l'application clinquante. C'est la tuyauterie discrète qui
 rejoint les gens là où ils sont déjà, sur le téléphone qu'ils ont en main, et qui
-respecte le temps du personnel d'agence. Une bonne partie de ma réflexion
+respecte le temps du personnel d'agence.
+
+Il m'a appris autre chose, que je n'avais pas anticipé. On juge un système sur son
+chemin nominal, et on l'adopte ou on l'abandonne sur son chemin dégradé. Concevoir
+la panne et le retour n'est pas du travail défensif : c'est ce qui décide si les
+gens s'en servent encore six mois plus tard. Une bonne partie de ma réflexion
 actuelle a commencé ici.

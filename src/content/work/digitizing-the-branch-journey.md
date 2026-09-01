@@ -1,6 +1,6 @@
 ---
 title: "Digitizing the branch customer journey"
-summary: "Customers start a transaction from their phone. It arrives pre-filled in the right branch queue, already linked to the core systems. Wait time and processing time dropped sharply."
+summary: "A central queue system for a branch network, with the customer journey digitised around it. Wait time and processing time dropped sharply. The hard part was not the nominal path, it was coming back after a network outage."
 role: "Software Engineer"
 stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Secure APIs"]
 year: 2024
@@ -13,8 +13,8 @@ urlSlug: digitizing-the-branch-journey
 
 ## Context
 
-A Central African bank with a network of 95 branches. The customer journey was
-still mostly analog. You walked in, took a ticket, waited, and only then started
+A Central African bank with branches spread across the country. The customer
+journey was still mostly analog. You walked in, took a ticket, waited, and only then started
 explaining what you came to do. The teller keyed everything from scratch while
 you stood there. The queue absorbed all of it, every day, in every branch.
 
@@ -71,6 +71,11 @@ dropped about 40 percent. The customer waits less. The teller does less
 mechanical entry and more of the judgment work only a person can do.
 
 ## What I took from it
+
+It also taught me something I had not expected. A system is judged on its nominal
+path and adopted or abandoned on its degraded one. Designing the outage and the
+return is not defensive work, it is what decides whether people still use the thing
+six months later.
 
 This is the project that convinced me the highest-leverage software in a bank is
 not the flashy app. It is the quiet plumbing that meets people where they already
