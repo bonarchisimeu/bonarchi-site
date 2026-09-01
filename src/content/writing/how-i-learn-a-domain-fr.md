@@ -29,7 +29,7 @@ Je ne suis pas arrivé dans la banque en connaissant la banque. Je suis arrivé 
 
 Le projet qui m'a le plus appris était un gestionnaire de file d'attente. Rien de spectaculaire : tenir l'ordre de passage des clients en agence, et digitaliser le parcours autour.
 
-Sur le papier, c'est trivial. En pratique, il y a un système central, un réseau de dizaines d'agences, une volumétrie qui ralentit tout, et une liaison qui finit toujours par couper quelque part.
+Sur le papier, c'est trivial. En pratique, le système est physique et temps réel : des kiosques pour prendre un ticket, des écrans dans la salle, un appel vocal qui annonce le numéro et indique le guichet. Tout ça doit rester synchronisé à la seconde, sur un réseau d'agences réparties, avec une volumétrie qui ralentit tout et une liaison qui finit toujours par couper quelque part.
 
 C'est là que le vrai problème est apparu, et il n'était pas technique au départ. Quand le système tombe, l'agence ne ferme pas. Le personnel reprend des tickets papier et appelle les clients à la voix. C'est la bonne décision : on ne renvoie pas les gens chez eux parce qu'un serveur ne répond plus.
 

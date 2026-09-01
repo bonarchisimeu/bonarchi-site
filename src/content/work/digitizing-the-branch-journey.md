@@ -38,8 +38,9 @@ A central system, branches spread across the country, and one guarantee to hold:
 the order customers are served in. While the link holds, this is simple. The day it
 breaks somewhere, the branch does not close.
 
-Staff fall back to paper tickets and call people by voice. That is the right call,
-and no software should try to prevent it. You do not send customers home because a
+The kiosk stops printing, the screen freezes, the voice goes quiet. Staff fall back
+to paper tickets and call people themselves, replacing the automated voice with
+their own. That is the right call, and no software should try to prevent it. You do not send customers home because a
 server stopped answering.
 
 The problem arrives when the network comes back.

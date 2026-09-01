@@ -18,6 +18,9 @@ parcours client était encore largement analogique. On entrait, on prenait un
 ticket, on attendait, et ce n'est qu'ensuite qu'on commençait à expliquer ce qu'on
 venait faire. Le guichetier saisissait tout depuis zéro pendant qu'on patientait.
 
+Le système est physique et temps réel : des kiosques pour prendre un ticket, des
+écrans dans la salle, un appel vocal qui annonce le numéro et indique le guichet.
+
 Deux contraintes structurent tout le reste. L'ordre de passage est une garantie :
 personne n'accepte d'être doublé. Et un réseau étendu sur un pays entier finit
 toujours par avoir une liaison qui lâche quelque part. Ces deux faits ensemble
@@ -45,8 +48,10 @@ Un système central, des agences réparties, et une garantie à tenir : l'ordre 
 passage. Tant que la liaison tient, c'est simple. Le jour où elle casse quelque
 part, l'agence ne ferme pas pour autant.
 
-Le personnel reprend des tickets papier et appelle les clients à la voix. C'est la
-bonne décision, et aucun logiciel ne devrait chercher à l'empêcher. On ne renvoie
+Le kiosque n'imprime plus, l'écran se fige, la voix se tait. Le personnel reprend
+alors des tickets papier et appelle les clients lui-même, remplaçant la voix
+automatique par la sienne. C'est la bonne décision, et aucun logiciel ne devrait
+chercher à l'empêcher. On ne renvoie
 pas des gens chez eux parce qu'un serveur ne répond plus.
 
 Le problème arrive au retour du réseau.

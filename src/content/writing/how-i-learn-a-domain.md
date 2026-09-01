@@ -29,7 +29,7 @@ I did not arrive in banking knowing banking. I arrived knowing how to build syst
 
 The project that taught me the most was a queue management system. Nothing glamorous: holding the order customers are served in a branch, and digitising the journey around it.
 
-On paper it is trivial. In practice there is a central system, a network of dozens of branches, volume that slows everything down, and a link that eventually drops somewhere.
+On paper it is trivial. In practice the system is physical and real time: kiosks that print tickets, screens in the hall, a voice announcement that calls the number and points to the counter. All of it has to stay in sync to the second, across a network of branches, with volume that slows everything down and a link that eventually drops somewhere.
 
 That is where the real problem showed up, and it was not technical at first. When the system goes down, the branch does not close. Staff fall back to paper tickets and call people by voice. That is the right call: you do not send customers home because a server stopped answering.
 
