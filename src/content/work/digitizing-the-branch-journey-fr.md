@@ -21,6 +21,16 @@ venait faire. Le guichetier saisissait tout depuis zéro pendant qu'on patientai
 Le système est physique et temps réel : des kiosques pour prendre un ticket, des
 écrans dans la salle, un appel vocal qui annonce le numéro et indique le guichet.
 
+Maintenir tout ça en vie est le coût réel. Chaque kiosque, chaque écran, chaque
+poste de guichet tient une connexion permanente vers le système central, multipliée
+par le nombre d'agences. Ce sont autant de liens à surveiller, à rétablir et à
+resynchroniser. Un appareil qui se reconnecte ne doit pas rejouer l'historique, il
+doit rattraper l'état courant immédiatement. Et dans une même salle, l'écran, la
+voix et le poste du guichetier doivent dire la même chose au même instant : un
+écran qui affiche un numéro périmé est pire que pas d'écran du tout. Le guichetier,
+lui, voit sa file se remplir en direct : un ticket pris au kiosque apparaît sur son
+poste sans qu'il ait à rafraîchir quoi que ce soit.
+
 Deux contraintes structurent tout le reste. L'ordre de passage est une garantie :
 personne n'accepte d'être doublé. Et un réseau étendu sur un pays entier finit
 toujours par avoir une liaison qui lâche quelque part. Ces deux faits ensemble

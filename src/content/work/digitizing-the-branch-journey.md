@@ -14,9 +14,26 @@ urlSlug: digitizing-the-branch-journey
 ## Context
 
 A Central African bank with branches spread across the country. The customer
-journey was still mostly analog. You walked in, took a ticket, waited, and only then started
-explaining what you came to do. The teller keyed everything from scratch while
-you stood there. The queue absorbed all of it, every day, in every branch.
+journey was still mostly analog. You walked in, took a ticket, waited, and only
+then started explaining what you came to do. The teller keyed everything from
+scratch while you stood there.
+
+The system is physical and real time: kiosks that print tickets, screens in the
+hall, a voice announcement that calls the number and points to the counter.
+
+Keeping all of that alive is the real cost. Every kiosk, every screen, every teller
+station holds a live connection to the central system, multiplied by the number of
+branches. That is a lot of links to watch, restore and resynchronise. A device that
+reconnects must not replay history, it has to catch up to current state
+immediately. Inside one hall, the screen, the voice and the teller's view have to
+say the same thing at the same moment: a screen showing a stale number is worse
+than no screen at all. And the teller watches the queue fill in live, a ticket
+taken at the kiosk appearing on the station without anyone refreshing anything.
+
+Two constraints shape everything else. The order customers are served in is a
+guarantee: nobody accepts being skipped. And a network spread across a whole
+country will always end up with a link failing somewhere. Those two facts together
+define the real problem, and it is not the one you expect at the start.
 
 ## What I built
 
