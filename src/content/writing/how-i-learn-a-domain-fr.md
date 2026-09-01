@@ -27,7 +27,7 @@ Ensuite, je livre quelque chose de petit et je laisse la réalité me corriger. 
 
 Je ne suis pas arrivé dans la banque en connaissant la banque. Je suis arrivé en sachant construire des systèmes, et j'ai appris le domaine en construisant dedans.
 
-Le projet qui m'a le plus appris était une file d'attente. Rien de spectaculaire : gérer l'ordre de passage des clients en agence, et digitaliser le parcours autour.
+Le projet qui m'a le plus appris était un gestionnaire de file d'attente. Rien de spectaculaire : tenir l'ordre de passage des clients en agence, et digitaliser le parcours autour.
 
 Sur le papier, c'est trivial. En pratique, il y a un système central, un réseau de dizaines d'agences, une volumétrie qui ralentit tout, et une liaison qui finit toujours par couper quelque part.
 

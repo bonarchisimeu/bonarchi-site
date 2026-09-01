@@ -27,7 +27,7 @@ Then I ship something small and let reality correct me. The fastest way to learn
 
 I did not arrive in banking knowing banking. I arrived knowing how to build systems, and I learned the domain by building inside it.
 
-The project that taught me the most was a queue. Nothing glamorous: managing the order customers are served in a branch, and digitising the journey around it.
+The project that taught me the most was a queue management system. Nothing glamorous: holding the order customers are served in a branch, and digitising the journey around it.
 
 On paper it is trivial. In practice there is a central system, a network of dozens of branches, volume that slows everything down, and a link that eventually drops somewhere.
 
