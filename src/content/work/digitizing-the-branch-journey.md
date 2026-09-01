@@ -2,7 +2,7 @@
 title: "Digitizing the branch customer journey"
 summary: "A central queue system for a branch network, with the customer journey digitised around it. Wait time and processing time dropped sharply. The hard part was not the nominal path, it was coming back after a network outage."
 role: "Software Engineer"
-stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Secure APIs"]
+stack: ["Java", "Spring Boot", "WebSocket", "PostgreSQL", "Docker", "Kubernetes", "Secure APIs"]
 year: 2024
 impact: "−45% client wait time · −40% processing time per transaction"
 order: 2
@@ -22,8 +22,8 @@ The system is physical and real time: kiosks that print tickets, screens in the
 hall, a voice announcement that calls the number and points to the counter.
 
 Keeping all of that alive is the real cost. Every kiosk, every screen, every teller
-station holds a live connection to the central system, multiplied by the number of
-branches. That is a lot of links to watch, restore and resynchronise. A device that
+station holds an open WebSocket connection to the central system, multiplied by the
+number of branches. That is a lot of links to watch, restore and resynchronise. A device that
 reconnects must not replay history, it has to catch up to current state
 immediately. Inside one hall, the screen, the voice and the teller's view have to
 say the same thing at the same moment: a screen showing a stale number is worse

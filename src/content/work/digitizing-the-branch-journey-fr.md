@@ -2,7 +2,7 @@
 title: "Digitaliser le parcours client en agence"
 summary: "Un système central de gestion de file pour un réseau d'agences, et le parcours client digitalisé autour. Le temps d'attente et le temps de traitement ont fortement baissé. La partie difficile n'était pas le chemin nominal, c'était le retour après une coupure réseau."
 role: "Ingénieur logiciel"
-stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "API sécurisées"]
+stack: ["Java", "Spring Boot", "WebSocket", "PostgreSQL", "Docker", "Kubernetes", "API sécurisées"]
 year: 2024
 impact: "−45% de temps d'attente client · −40% de temps de traitement par transaction"
 order: 2
@@ -22,8 +22,8 @@ Le système est physique et temps réel : des kiosques pour prendre un ticket, d
 écrans dans la salle, un appel vocal qui annonce le numéro et indique le guichet.
 
 Maintenir tout ça en vie est le coût réel. Chaque kiosque, chaque écran, chaque
-poste de guichet tient une connexion permanente vers le système central, multipliée
-par le nombre d'agences. Ce sont autant de liens à surveiller, à rétablir et à
+poste de guichet tient une connexion WebSocket ouverte vers le système central,
+multipliée par le nombre d'agences. Ce sont autant de liens à surveiller, à rétablir et à
 resynchroniser. Un appareil qui se reconnecte ne doit pas rejouer l'historique, il
 doit rattraper l'état courant immédiatement. Et dans une même salle, l'écran, la
 voix et le poste du guichetier doivent dire la même chose au même instant : un
