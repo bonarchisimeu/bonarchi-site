@@ -2,14 +2,16 @@
 title: "How I learn a domain"
 description: "I'm not the person who already knows your field. I'm the person who learns it fast enough to build the thing it needs. Here is how."
 pubDate: 2026-06-18
-updated: 2026-08-28
+updated: 2026-09-13
 tags: ["learning", "engineering", "method"]
 draft: false
 lang: en
 urlSlug: how-i-learn-a-domain
 ---
 
-People keep asking me a version of the same question. How can you build software for banking if you are not a banker? Tomorrow it will be the same question about agriculture, or energy, or health.
+At school I learned that the work done by gravity does not depend on the path taken, only on where you start and where you end. In software engineering it is almost the opposite. A solution that looks obvious today is the product of everything that came before it: the constraints of the trade, the decisions taken, the mistakes, the edge cases met along the way.
+
+Which is why people keep asking me a version of the same question. How can you build software for banking if you are not a banker? Tomorrow it will be the same question about agriculture, or energy, or health.
 
 Here is the honest answer. I am not the person who already knows your field. I am the person who learns it fast enough to build the thing it needs. That is the real skill. Not a stack of frameworks. The ability to walk into a domain I do not know and come out, a few weeks later, with software that fits it.
 
@@ -18,6 +20,8 @@ Here is the honest answer. I am not the person who already knows your field. I a
 It is less clever than it sounds.
 
 First, I go for the ground truth, not the slide deck. Every domain has an official story and a real one. The official story lives in the documentation. The real one lives in what people actually do at 4pm on a Friday, when the system is slow and the queue is long. I want the second story. So I watch the person doing the work, not the person describing it.
+
+There is always a happy flow, the path everyone planned for when things work. But a domain is never just its happy flow. What interests me is what happens when it disappears. What does the clerk do when the network drops? When a customer turns up with a case nobody planned for? When the system slows down and the queue grows? None of those answers are written down anywhere, and that is where the domain shows itself.
 
 Then I look for the one thing that cannot break. Every field has an invariant, a line you do not cross or nothing else matters. In banking it is easy to say and brutal to honour: no franc is created, none is lost. Find that line early. Build everything around protecting it.
 
@@ -39,17 +43,15 @@ And with it, the questions I had not seen coming. How do you resume without brea
 
 I had designed the nominal path. The domain taught me that what matters is the degraded path, and above all the return. A system you cannot catch up after an outage does not get picked back up by its users. It gets abandoned, and everyone keeps the paper.
 
+Knowing a domain is not only knowing its rules. It is understanding what happens when the rules meet reality.
+
 The same lesson repeated elsewhere. On the bridge between a bank account and a mobile money wallet, a different set of domain rules landed on me: what reconciliation at end of day actually means, why idempotency is not a textbook word but the thing that stops a customer being debited twice when their phone drops mid-payment, and what the regulator will and will not accept.
 
 None of that was in a specification. I learned it because those systems would have died without it.
 
-## Why I am deliberately learning a new domain right now
-
-I am studying business, on purpose, while I keep shipping. Economics, accounting, the models of how organisations actually run. Not because I plan to leave engineering. Because leadership is the next domain I want to be able to build in, and I am running the same method on it. Go for the ground truth. Find the invariant. Be wrong early.
+## So, the answer
 
 Three things get confused with each other: being able to learn, knowing how to learn, and wanting to. The first I was lucky to get. The second I have been sharpening for years. The third is the only one I actually control, and it is the part that travels.
-
-## So, the answer
 
 The domain will change. Banking today. Something else after. What I carry between them is not a body of facts. It is a way of entering a field, finding the line that cannot break, and building until the thing works on the ground it actually stands on.
 
