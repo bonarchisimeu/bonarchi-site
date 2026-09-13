@@ -9,7 +9,7 @@ lang: fr
 urlSlug: how-i-learn-a-domain
 ---
 
-À l'école, j'ai appris que le travail du poids ne dépend pas du chemin parcouru, seulement du point de départ et du point d'arrivée. En ingénierie logicielle, c'est presque l'inverse. Une solution qui paraît évidente aujourd'hui est le produit de tout ce qui l'a précédée : les contraintes du métier, les décisions prises, les erreurs, les cas particuliers rencontrés en chemin.
+À l'école, en cours de physique, j'ai appris que le travail du poids ne dépend pas du chemin parcouru, seulement du point de départ et du point d'arrivée. En ingénierie logicielle, c'est presque l'inverse. Une solution qui paraît évidente aujourd'hui est le produit de tout ce qui l'a précédée : les contraintes du métier, les décisions prises, les erreurs, les cas particuliers rencontrés en chemin.
 
 C'est pour ça qu'on me pose toujours une variante de la même question. Comment peux-tu construire du logiciel pour la banque si tu n'es pas banquier ? Demain, ce sera la même question sur l'agriculture, l'énergie ou la santé.
 

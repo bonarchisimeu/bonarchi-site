@@ -9,7 +9,7 @@ lang: en
 urlSlug: how-i-learn-a-domain
 ---
 
-At school I learned that the work done by gravity does not depend on the path taken, only on where you start and where you end. In software engineering it is almost the opposite. A solution that looks obvious today is the product of everything that came before it: the constraints of the trade, the decisions taken, the mistakes, the edge cases met along the way.
+At school, in physics class, I learned that the work done by gravity does not depend on the path taken, only on where you start and where you end. In software engineering it is almost the opposite. A solution that looks obvious today is the product of everything that came before it: the constraints of the trade, the decisions taken, the mistakes, the edge cases met along the way.
 
 Which is why people keep asking me a version of the same question. How can you build software for banking if you are not a banker? Tomorrow it will be the same question about agriculture, or energy, or health.
 
