@@ -4,7 +4,7 @@ summary: "Un système central de gestion de file pour un réseau d'agences, et l
 role: "Ingénieur logiciel"
 stack: ["Java", "Spring Boot", "WebSocket", "PostgreSQL", "Docker", "Kubernetes", "API sécurisées"]
 year: 2024
-impact: "−45% de temps d'attente client · −40% de temps de traitement par transaction"
+impact: "−42% de temps d'attente client · −40% de temps de traitement par transaction"
 order: 2
 draft: false
 lang: fr
@@ -93,7 +93,7 @@ monde a gardé le papier.
 
 ## Impact
 
-Le temps d'attente client a baissé d'environ 45 %. Le temps de traitement par
+Le temps d'attente client a baissé d'environ 42 %. Le temps de traitement par
 transaction d'environ 40 %. Le client attend moins. Le guichetier fait moins de
 saisie mécanique et davantage le travail de jugement que seule une personne peut
 faire.

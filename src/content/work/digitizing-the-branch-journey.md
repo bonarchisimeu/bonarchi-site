@@ -4,7 +4,7 @@ summary: "A central queue system for a branch network, with the customer journey
 role: "Software Engineer"
 stack: ["Java", "Spring Boot", "WebSocket", "PostgreSQL", "Docker", "Kubernetes", "Secure APIs"]
 year: 2024
-impact: "−45% client wait time · −40% processing time per transaction"
+impact: "−42% client wait time · −40% processing time per transaction"
 order: 2
 draft: false
 lang: en
@@ -87,7 +87,7 @@ everyone kept the paper.
 
 ## Impact
 
-Client wait time dropped about 45 percent. Processing time per transaction
+Client wait time dropped about 42 percent. Processing time per transaction
 dropped about 40 percent. The customer waits less. The teller does less
 mechanical entry and more of the judgment work only a person can do.
 

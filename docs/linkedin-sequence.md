@@ -132,7 +132,7 @@ compte en temps réel.
 
 Le guichetier valide au lieu de ressaisir.
 
-Résultat : environ 45 % de temps d'attente en moins, environ 40 % de temps de
+Résultat : environ 42 % de temps d'attente en moins, environ 40 % de temps de
 traitement en moins par transaction.
 
 Le point délicat n'était pas l'interface. C'était de garantir qu'une demande créée
