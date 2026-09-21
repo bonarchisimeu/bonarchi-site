@@ -11,7 +11,7 @@ urlSlug: nobody-came
 Construire, c'était la partie que je savais faire.
 
 Le produit fonctionnait. Il était déployé, supervisé, et il résolvait un
-problème que j'avais vu de vraies personnes subir. Selon tous les critères qu'on
+problème que je voyais des gens autour de moi subir au quotidien. Selon tous les critères qu'on
 m'a appris à surveiller, c'était une réussite. Tests au vert. Disponibilité
 correcte. Une architecture que je pouvais défendre devant n'importe qui.
 
@@ -92,8 +92,8 @@ l'écrire maintenant plutôt que jouer une expertise que je n'ai pas gagnée.
 Ce que je peux faire, c'est traiter la distribution comme n'importe quel domaine
 que je ne connais pas encore. Aller chercher la vérité du terrain plutôt que
 l'histoire qui m'arrange. Chercher la seule chose qui doit être vraie, sans quoi
-rien d'autre ne compte. Avoir tort tôt et volontairement, devant de vraies
-personnes, plutôt que tard et en privé.
+rien d'autre ne compte. Avoir tort tôt et volontairement, face aux
+utilisateurs, plutôt que tard et en privé.
 
 C'est la méthode que j'applique depuis le début. Seul le terrain a changé : ce
 n'est plus une agence bancaire ni un système en production, ce sont les gens qui
