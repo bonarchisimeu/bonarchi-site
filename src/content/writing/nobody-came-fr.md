@@ -1,9 +1,9 @@
 ---
 title: "J'ai construit le produit. Personne n'est venu."
 description: "Construire quelque chose de bon et le faire adopter sont deux métiers différents. Je maîtrise le premier et je débute dans le second, et faire semblant du contraire me coûtait cher."
-pubDate: 2026-09-25
+pubDate: 2026-09-21
 tags: ["produit", "distribution", "ingénierie-et-business"]
-draft: true
+draft: false
 lang: fr
 urlSlug: nobody-came
 ---
@@ -24,9 +24,11 @@ construit apprennent qu'il existait.
 ## Tout ce qui me dit que j'ai raison est interne
 
 Un ingénieur vit dans des boucles de retour rapides et honnêtes. Le compilateur
-répond tout de suite. Les tests répondent en quelques secondes. La production
-répond en quelques minutes, fort, parfois à trois heures du matin. On ne reste
-jamais longtemps dans le doute quant à savoir si la chose marche.
+dit tout de suite quand le code ne peut pas s'exécuter. Les tests montrent en
+quelques secondes quand un comportement ne correspond pas à ce qu'on attend. Et
+une fois en production, les logs, les métriques et les utilisateurs finissent
+par révéler les problèmes qu'on n'avait pas vus, parfois à trois heures du matin.
+On ne reste jamais longtemps dans le doute quant à savoir si la chose marche.
 
 ## La distribution n'a pas de compilateur
 
@@ -60,6 +62,11 @@ mon bon produit restait là, sans bouger.
 
 Je débute là-dedans, donc ce qui suit tient plus des premières observations que
 des leçons.
+
+Elles viennent d'EasyBlue, où j'ai fini par faire ce que je repoussais : réécrire
+la présentation du produit, formuler sa valeur en une phrase, lancer et analyser
+des campagnes publicitaires sur Facebook. Pas pour devenir spécialiste du
+marketing. Pour obtenir enfin un signal, là où le silence n'en donnait aucun.
 
 Le prix n'est pas un nombre qu'on choisit à la fin. C'est un signal qui arrive
 avant que quiconque ait essayé la chose, et il dit aux gens à quoi s'attendre,

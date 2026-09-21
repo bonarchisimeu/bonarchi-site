@@ -1,9 +1,9 @@
 ---
 title: "I built the product. Nobody came."
 description: "Building something good and getting it used are two different crafts. I am fluent in the first one and a beginner at the second, and pretending otherwise was costing me."
-pubDate: 2026-09-25
+pubDate: 2026-09-21
 tags: ["product", "distribution", "engineering-to-business"]
-draft: true
+draft: false
 lang: en
 urlSlug: nobody-came
 ---
@@ -24,9 +24,11 @@ find out it existed.
 ## Everything I use to know I am right is internal
 
 An engineer lives inside fast, honest feedback loops. The compiler tells you
-immediately. The test suite tells you in seconds. Production tells you within
-minutes, loudly, sometimes at three in the morning. You are never in doubt for
-very long about whether the thing works.
+immediately when the code cannot run. The test suite shows you within seconds
+when a behaviour does not match what you expected. And once the thing is in
+production, logs, metrics and users eventually surface the problems you missed,
+sometimes at three in the morning. You are never in doubt for very long about
+whether the thing works.
 
 ## Distribution has no compiler
 
@@ -58,6 +60,11 @@ It is also the reason my good product sat there.
 
 I am early in this, so what follows is closer to a set of first observations
 than to lessons.
+
+They come from EasyBlue, where I finally did what I had been putting off:
+rewriting how the product presents itself, stating its value in one sentence,
+running and analysing Facebook ad campaigns. Not to become a marketer. To get a
+signal at last, where the silence gave me none.
 
 Price is not a number you choose at the end. It is a signal that arrives before
 anyone has used the thing, and it tells people what to expect, whether you meant
