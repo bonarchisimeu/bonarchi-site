@@ -46,8 +46,8 @@ Je veux le nommer précisément, parce que « les ingénieurs sont nuls en vente
 est une façon paresseuse de le dire, et ça m'arrange trop.
 
 Le bug, c'est de traiter « ça résout un vrai problème » comme une condition
-suffisante. Ce n'est même pas une condition nécessaire, et c'est la partie
-désagréable. Des tas de choses se font adopter en résolvant le problème moins
+suffisante. Et résoudre mieux que les autres n'est même pas nécessaire, c'est la
+partie désagréable. Des tas de choses se font adopter en résolvant le problème moins
 bien que d'autres dont personne ne veut. Je le savais comme un fait observable
 du monde, et je l'avais rangé quelque part sous « le problème des autres ».
 
@@ -67,6 +67,8 @@ Elles viennent d'[EasyBlue](https://easyblue.app), où j'ai fini par faire ce qu
 la présentation du produit, formuler sa valeur en une phrase, lancer et analyser
 des campagnes publicitaires sur Facebook. Pas pour devenir spécialiste du
 marketing. Pour obtenir enfin un signal, là où le silence n'en donnait aucun.
+En cherchant ce signal, j'ai commencé à voir ce que je ne regardais pas quand je
+pensais seulement en ingénieur.
 
 Le prix n'est pas un nombre qu'on choisit à la fin. C'est un signal qui arrive
 avant que quiconque ait essayé la chose, et il dit aux gens à quoi s'attendre,

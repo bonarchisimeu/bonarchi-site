@@ -44,8 +44,9 @@ their behaviour are two different achievements and I had only done the first.
 I want to name this precisely, because "engineers are bad at sales" is a lazy
 way to say it and it lets me off the hook.
 
-The bug is treating "it solves a real problem" as a sufficient condition. It is
-not even a necessary one, which is the uncomfortable part. Plenty of things get
+The bug is treating "it solves a real problem" as a sufficient condition. And
+solving it better than the alternatives is not even necessary, which is the
+uncomfortable part. Plenty of things get
 adopted while solving the problem worse than something else that nobody uses. I
 knew that as an observable fact about the world and had somehow filed it as
 other people's problem.
@@ -64,7 +65,8 @@ than to lessons.
 They come from [EasyBlue](https://easyblue.app), where I finally did what I had been putting off:
 rewriting how the product presents itself, stating its value in one sentence,
 running and analysing Facebook ad campaigns. Not to become a marketer. To get a
-signal at last, where the silence gave me none.
+signal at last, where the silence gave me none. Looking for that signal, I
+started to see what I never looked at when I thought only as an engineer.
 
 Price is not a number you choose at the end. It is a signal that arrives before
 anyone has used the thing, and it tells people what to expect, whether you meant
