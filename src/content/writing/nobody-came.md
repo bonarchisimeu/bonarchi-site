@@ -10,7 +10,7 @@ urlSlug: nobody-came
 
 The build was the part I knew how to do.
 
-The thing worked. It was deployed, it was monitored, it solved a problem I had
+The product worked. It was deployed, it was monitored, it solved a problem I had
 watched real people struggle with. By every measure I had been trained to care
 about, it was a success. Tests green. Uptime good. Architecture I could defend
 in front of anyone.
@@ -61,7 +61,7 @@ It is also the reason my good product sat there.
 I am early in this, so what follows is closer to a set of first observations
 than to lessons.
 
-They come from EasyBlue, where I finally did what I had been putting off:
+They come from [EasyBlue](https://easyblue.app), where I finally did what I had been putting off:
 rewriting how the product presents itself, stating its value in one sentence,
 running and analysing Facebook ad campaigns. Not to become a marketer. To get a
 signal at last, where the silence gave me none.
@@ -74,10 +74,12 @@ Differentiation is not decoration. When several things do roughly the same job,
 the reason someone picks one is not usually the technical delta I would put in a
 comparison table. I find that annoying. It is still true.
 
-And adoption is behavioural, not rational. People do not switch to the better
-option, they switch when the cost of switching drops below the pain of staying.
-Most of my design effort had gone into being better, and almost none into making
-the switch cheap.
+And adoption is not decided on quality alone. I compared solutions the way an
+engineer does: features, architecture, performance, price. But the person on
+the other side first has to decide to change what they already use, and that
+change has a cost: learning something new, trusting it, taking a risk, dropping
+a habit. I had put almost all my effort into making the product better, and
+almost none into making that change easy.
 
 ## Where that leaves me
 
@@ -89,7 +91,8 @@ yet. Go find the ground truth instead of the story I like. Look for the one
 thing that has to be true or nothing else matters. Be wrong early and on
 purpose, in front of real people, rather than late and in private.
 
-That is the method I claim to use. It says I learn a domain and then build what
-it needs. It turns out the sentence holds even when the domain is not technical,
-and even when it puts me back at the very beginning, which is a less flattering
-place to stand than the one I am used to.
+That is the method I have used from the start. Only the ground has changed: it
+is no longer a bank branch or a system in production, it is the people who
+should be using the product and are not yet.
+
+And this time, the beginner is me.

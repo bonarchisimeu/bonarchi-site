@@ -10,14 +10,14 @@ urlSlug: nobody-came
 
 Construire, c'était la partie que je savais faire.
 
-La chose fonctionnait. Elle était déployée, supervisée, et elle résolvait un
+Le produit fonctionnait. Il était déployé, supervisé, et il résolvait un
 problème que j'avais vu de vraies personnes subir. Selon tous les critères qu'on
 m'a appris à surveiller, c'était une réussite. Tests au vert. Disponibilité
 correcte. Une architecture que je pouvais défendre devant n'importe qui.
 
 Puis il y a eu le silence.
 
-Pas un échec, non. Rien n'a cassé. C'était plus discret que ça. Le produit
+Pas un échec, non. Aucune panne. C'était plus discret que ça. Le produit
 restait là, correct et tranquille, à attendre que les gens pour qui il avait été
 construit apprennent qu'il existait.
 
@@ -63,7 +63,7 @@ mon bon produit restait là, sans bouger.
 Je débute là-dedans, donc ce qui suit tient plus des premières observations que
 des leçons.
 
-Elles viennent d'EasyBlue, où j'ai fini par faire ce que je repoussais : réécrire
+Elles viennent d'[EasyBlue](https://easyblue.app), où j'ai fini par faire ce que je repoussais : réécrire
 la présentation du produit, formuler sa valeur en une phrase, lancer et analyser
 des campagnes publicitaires sur Facebook. Pas pour devenir spécialiste du
 marketing. Pour obtenir enfin un signal, là où le silence n'en donnait aucun.
@@ -77,10 +77,12 @@ Se différencier n'est pas de la décoration. Quand plusieurs solutions font à 
 près le même travail, ce qui décide quelqu'un n'est presque jamais l'écart
 technique que je mettrais dans un tableau comparatif. Ça m'agace. Ça reste vrai.
 
-Et l'adoption est comportementale, pas rationnelle. Les gens ne basculent pas
-vers la meilleure option, ils basculent quand le coût du changement descend en
-dessous de la gêne de rester. J'avais mis presque tout mon effort de conception
-à être meilleur, et presque rien à rendre le changement bon marché.
+Et l'adoption ne se décide pas seulement sur la qualité. Je comparais les
+solutions comme un ingénieur : fonctionnalités, architecture, performance, prix.
+Mais la personne en face doit d'abord décider de changer ce qu'elle utilise
+déjà, et ce changement a un coût : apprendre autre chose, faire confiance,
+prendre un risque, perdre une habitude. J'avais mis presque tout mon effort à
+rendre le produit meilleur, et presque rien à rendre ce changement facile.
 
 ## Où ça me laisse
 
@@ -93,7 +95,8 @@ l'histoire qui m'arrange. Chercher la seule chose qui doit être vraie, sans quo
 rien d'autre ne compte. Avoir tort tôt et volontairement, devant de vraies
 personnes, plutôt que tard et en privé.
 
-C'est la méthode que je revendique. Elle dit que j'apprends un domaine, puis que
-je construis ce dont il a besoin. Il se trouve que la phrase tient même quand le
-domaine n'est pas technique, et même quand elle me remet tout au début, ce qui
-est une place moins flatteuse que celle dont j'ai l'habitude.
+C'est la méthode que j'applique depuis le début. Seul le terrain a changé : ce
+n'est plus une agence bancaire ni un système en production, ce sont les gens qui
+devraient utiliser le produit et qui ne le font pas encore.
+
+Et cette fois, le débutant, c'est moi.
